@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JD顶部</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/css/all.css">
+    <style>
+        div.top {
+            height: 30px;
+            background-color: #ddd;
+            line-height: 30px;
+            font-size: 12px;
+            text-decoration: none;
+            color: #666;
+        }
+
+        .top .center {
+            width: 1190px;
+            height: 30px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .center>div {
+            float: left;
+            padding: 0px 7px;
+        }
+        .position span{
+            margin-left: 3px;
+        }
+        .center ul {
+            position: absolute;
+            right: 0px;
+        }
+        ul.list .shortcut{
+            float: left;
+            width: 1px;
+            height: 10px;
+            background-color: rgb(184, 183, 183);
+            margin: 10px 0px 10px 10px;
+        }
+        .center li {
+            float: left;
+            padding: 0px 4px 0px 3px;
+            margin-left: 14px;
+        }
+        
+        .center a {
+            text-decoration: none;
+            color: #999;
+        }
+
+        .center a:hover {
+            color: #f10215;
+        }
+
+        .center li.flo:hover,
+        .center .position:hover {
+            background-color: white;
+            border: 1px 1px 0px 1px solid #e3e4e5 ;
+        }
+        ul.list .highlight{
+            color: #f10215;
+        }
+        #register{
+            color: #f10215;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="center">
+            <div class="position">
+                <a href=""><i class="fas fa-map-marker-alt" style="color:#f10215; font-size: 12px;"></i>
+                    <span>北京</span>
+                </a></div>
+            <ul class="list">
+                <li> <a href="https://passport.jd.com/new/login.aspx?ReturnUrl=https%3A%2F%2Fwww.jd.com%2F%3Fcu%3Dtrue%26utm_source%3Dc.duomai.com%26utm_medium%3Dtuiguang%26utm_campaign%3Dt_16282_89657829%26utm_term%3Ddf68b2f0de774c6dac99f6367d929374">你好, 请登录</a>
+                    
+                    <a href="https://reg.jd.com/reg/person?ReturnUrl=https%3A//www.jd.com/%3Fcu%3Dtrue%26utm_source%3Dc.duomai.com%26utm_medium%3Dtuiguang%26utm_campaign%3Dt_16282_89657829%26utm_term%3Ddf68b2f0de774c6dac99f6367d929374" id="register">免费注册</a></li>
+                <div class="shortcut"></div>
+                <li><a href="https://order.jd.com/center/list.action" target="_blank">我的订单</a></li>
+                <div class="shortcut"></div>
+                <li class="flo">
+                    <a href="https://home.jd.com/" target="_blank"><span>我的京东</span></a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <div class="shortcut"></div>
+                <li>
+                    <a href="https://vip.jd.com/" target="_blank">京东会员</a>
+                </li>
+                <div class="shortcut"></div>
+                <li class="flo">
+                    <a class="highlight" href="https://b.jd.com/" target="_blank">
+                        <span>企业采购</span></a>
+                        <i class="fas fa-angle-down"></i>
+                </li>
+                <div class="shortcut"></div>
+                <li class="flo">
+                    <span>客户服务</span><i class="fas fa-angle-down"></i>
+                </li>
+                <div class="shortcut"></div>
+                <li class="flo">
+                       <span>网站导航</span><i class="fas fa-angle-down"></i>
+                </li>
+                <div class="shortcut"></div>
+                <li>手机京东</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
