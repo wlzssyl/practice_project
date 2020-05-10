@@ -1,0 +1,50 @@
+.topbar{
+    width: 100%;
+    line-height: 40px;
+    font-size: 12px;
+    color: #b0b0b0;
+    background-color: #333;
+}
+.topbar .topbar-center{
+    width: 1226px;
+    height: 40px;
+    margin: 0 auto;
+}
+.topbar a{
+    display: inline-block;
+    text-decoration: none;
+    color:#b0b0b0 ;
+}
+.topbar .top-list li{
+    float: left;
+}
+.topbar .top-list li>span{
+    padding: 0 7px;
+    color: rgb(66, 66, 66) ;
+}
+.topbar a:hover{
+    color: #fff;
+}
+.topbar .user-info li{
+   float: right;
+}
+.topbar .user-info span{
+    margin: 0 7px;
+    color: rgb(66, 66, 66)
+}  
+.topbar .shopping-box{
+    float: right;
+    width: 120px;
+    margin-left:25px;
+    background-color: #424242;
+    text-align: center;
+}
+.topbar .shopping-box a{
+     display: block;
+     padding: 0 10px;
+}
+.topbar .shopping-box:hover a,
+.topbar .shopping-box:hover{
+    color:#ff6700;
+    background-color: #fff;
+}
