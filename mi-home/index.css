@@ -1,3 +1,4 @@
+/* 网页顶部导航栏 */
 .topbar{
     width: 100%;
     line-height: 40px;
@@ -25,6 +26,48 @@
 .topbar a:hover{
     color: #fff;
 }
+.topbar .app-download{
+    position: relative;
+}
+.topbar .app-download .app-img img{
+    width: 90px;
+    height: 90px;
+    margin:17px;
+    margin-bottom: -12px;
+}
+.topbar .app-download .app-img{
+    /* display: none; */
+    height: 0px;
+    overflow: hidden;
+    text-align: center;
+    position: absolute;
+    width: 124px;
+    /* height: 148px; */
+    font-size: 14px;
+    color: #333;
+    left:  -42px ;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+    transition: height 0.3s;
+}
+.topbar .app-download::after{
+    display: none;
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    left: 15px;
+    top: 32px;
+    border: 8px solid transparent;
+    border-top: none;
+    border-bottom-color: #fff;
+}
+.topbar .app-download:hover .app-img{
+    height: 148px;
+
+}
+.topbar .app-download:hover::after{
+    display: block;   
+}
 .topbar .user-info li{
    float: right;
 }
@@ -32,19 +75,82 @@
     margin: 0 7px;
     color: rgb(66, 66, 66)
 }  
-.topbar .shopping-box{
+.topbar .shopping{
     float: right;
-    width: 120px;
+    position: relative;
     margin-left:25px;
     background-color: #424242;
-    text-align: center;
 }
-.topbar .shopping-box a{
+.topbar .shopping div:not(.shopping-box){
+    width: 120px;
+    height: 40px;
+}
+.topbar .shopping a{
+    position: absolute;
      display: block;
-     padding: 0 10px;
+     padding: 0 18px;
+     border-bottom: 5px solid #fff;
+     z-index: 999;
 }
-.topbar .shopping-box:hover a,
-.topbar .shopping-box:hover{
+.topbar .shopping-box{
+    position: absolute;
+    right: 0;
+    width: 316px;
+    height: 0px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #424242;
+    background-color: #fff;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    z-index: 99;
+    transition: height 0.4s;
+}
+.topbar .shopping:hover a,
+.topbar .shopping:hover{
     color:#ff6700;
     background-color: #fff;
+}
+.topbar .shopping:hover .shopping-box{
+    height: 100px;
+}
+
+/* 网页头部 */
+.header{
+    height: 100px;
+}
+.header .header-center{
+    height: 100px;  
+}
+.header .logo{
+    overflow: hidden;
+    position: relative;
+    width: 55px;
+    height: 55px;
+    margin: 22.5px 0;
+}
+.logo .mi{
+    position: absolute;
+    width: 49px;
+    height: 49px;
+    padding: 3px ;
+    left:0;
+    background-color: #ff6700;
+    transition: left 0.3s;
+}
+.logo .house{
+    position: absolute;
+    width: 49px;
+    height: 49px;
+    padding: 3px ;
+    left: -55px;
+    background-color: #ff6700;
+    transition: left 0.3s;
+}
+.header .logo:hover .house{
+    left: 0;
+}
+.header .logo:hover .mi{
+    left: 55px;
 }
