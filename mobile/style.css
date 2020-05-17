@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.w,
+.top-bar,
+.img-bar,
+.user-info,
+.lastest {
+  margin: 0 auto;
+  width: 17.325rem;
+}
+html {
+  font-size: 5.33333333vw;
+  background-color: #eff0f4;
+}
+.top-bar {
+  display: flex;
+  height: 4.375rem;
+  line-height: 4.375rem;
+  justify-content: space-between;
+}
+.top-bar h1 {
+  font-size: 1.25rem;
+  color: #24253d;
+}
+.top-bar i {
+  font-size: 1.25rem;
+  color: #999999;
+}
+.img-bar {
+  display: flex;
+  height: 6.925rem;
+  background-image: url("img/1.jpg");
+  background-size: cover;
+}
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-evenly;
+  height: 8.35rem;
+  flex-wrap: wrap;
+}
+.user-info a {
+  text-decoration: none;
+  line-height: 2.6rem;
+  font-size: 0.75rem;
+  color: #fff;
+}
+.user-info a li {
+  width: 8.175rem;
+  height: 2.6rem;
+  border-radius: 0.5rem;
+}
+.user-info a i {
+  margin: 0 0.5rem 0 1rem;
+}
+.user-info .course li {
+  background-color: #f57762;
+}
+.user-info .teacher li {
+  background-color: #c85eff;
+}
+.user-info .Subscription li {
+  background-color: #ff3e74;
+}
+.user-info .download li {
+  background-color: #1d92ff;
+}
+.lastest {
+  height: 9.775rem;
+}
+.lastest .lastest-title {
+  display: flex;
+  position: relative;
+  line-height: 0.7rem;
+}
+.lastest .lastest-title div {
+  width: 0.025rem;
+  height: 0.7rem;
+  margin-right: 0.375rem;
+  background-color: #3a84ff;
+  border: 1px solid #3a84ff;
+  border-top: none;
+  border-bottom: none;
+}
+.lastest .lastest-title span {
+  font-size: 0.825rem;
+  font-weight: bold;
+  color: #24253d;
+}
+.lastest .lastest-title .more {
+  position: absolute;
+  font-size: 0.7rem;
+  color: #686868;
+  text-decoration: none;
+  right: 0;
+}
+.lastest .lastest-info ul {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+.lastest .lastest-info ul a {
+  text-decoration: none;
+}
+.lastest .lastest-info ul li {
+  box-sizing: border-box;
+  width: 8.2rem;
+  height: 8.125rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.55rem;
+  padding-bottom: none;
+}
+.lastest .lastest-info ul li .img {
+  width: 7.1rem;
+  height: 3.9rem;
+}
+.lastest .lastest-info ul li .img img {
+  width: 100%;
+}
+.lastest .lastest-info ul li .title {
+  font-size: 0.025rem;
+  color: #24253d;
+  line-height: 1.8rem;
+}
+.lastest .lastest-info ul li .uper {
+  display: flex;
+  height: 1.1rem;
+  line-height: 1.1rem;
+}
+.lastest .lastest-info ul li .uper .head {
+  width: 1.05rem;
+}
+.lastest .lastest-info ul li .uper .head img {
+  width: 100%;
+}
+.lastest .lastest-info ul li .uper span {
+  margin-left: 0.375rem;
+  font-size: 0.6rem;
+  color: #969393;
+}
+/*# sourceMappingURL=./style.css.map */
