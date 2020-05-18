@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.top {
+  background-color: #000;
+}
+.top-bar {
+  display: flex;
+  max-width: 1200px;
+  height: 48px;
+  padding: 0 14px;
+  margin: 0 auto;
+  background-color: #000;
+  justify-content: space-between;
+  line-height: 48px;
+}
+.top-bar a {
+  text-decoration: none;
+  color: #fff;
+}
+.top-bar a:hover {
+  color: #c4c4c4;
+}
+.top-bar .menu .menu-icon {
+  width: 18px;
+}
+.top-bar .menu .menu-icon li {
+  width: 18px;
+  height: 1px;
+  background-color: #fff;
+  transform-origin: left;
+  transition: 0.5s;
+}
+.top-bar .menu .menu-icon li:first-child {
+  margin-top: 16px;
+}
+.top-bar .menu .menu-icon li:nth-child(2),
+.top-bar .menu .menu-icon li:nth-child(3) {
+  margin-top: 6px;
+}
+.top-bar .menu .menu-icon:hover li:first-child {
+  transform: rotateZ(48deg);
+}
+.top-bar .menu .menu-icon:hover li:nth-child(2) {
+  opacity: 0;
+}
+.top-bar .menu .menu-icon:hover li:nth-child(3) {
+  transform: rotateZ(-48deg);
+}
+.top-bar .menu .menu-list {
+  display: none;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 40px;
+  background-color: #000;
+  width: 100%;
+}
+.top-bar .menu .menu-list li {
+  width: 80%;
+  margin: 0 auto;
+  border-bottom: 1px solid #414141;
+}
+.top-bar .menu .menu-list li a {
+  display: block;
+  font-size: 14px;
+  line-height: 44px;
+}
+.top-bar .menu .menu-list li:last-child a {
+  display: inline-block;
+}
+.top-bar .menu .menu-list span {
+  margin-left: 6px ;
+  color: #fff;
+}
+.top-bar .menu:hover .menu-list {
+  display: block;
+}
+.top-bar .logo a {
+  text-indent: -9999px;
+  display: block;
+  line-height: 32px;
+  width: 122px;
+  height: 32px;
+  margin: 6px 0;
+  background-image: url(dff63979.sprites-index@2x.png);
+  background-size: 400px 400px;
+}
+@media only screen and (min-width: 768px) {
+  .logo {
+    order: 1;
+  }
+  .user-info {
+    order: 3;
+  }
+  .top .top-bar .menu {
+    flex: auto;
+    order: 2;
+  }
+  .top .top-bar .menu .menu-list {
+    display: flex;
+    position: static;
+    padding: 0;
+    border-bottom: none;
+    height: 48px;
+    justify-content: space-around;
+  }
+  .top .top-bar .menu .menu-list li {
+    width: auto;
+  }
+  .top .top-bar .menu .menu-list li a {
+    line-height: 48px;
+  }
+  .top .top-bar .menu .menu-list li span {
+    display: none;
+  }
+  .top .top-bar .menu .menu-icon {
+    display: none;
+  }
+}
+/*# sourceMappingURL=./style.css.map */
