@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易图片新闻</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        div.right{
+            width: 300px;
+            border-top: 1px;
+            border-top-style: solid;
+            border-top-color: rgb(221,221,221);
+            margin: 10PX;
+        }
+        .title{
+            width: 300;
+            height: 40px;
+            line-height: 40px;
+            font-weight: bold;  
+            font-size: 16px; 
+           /* 可以把标题设置成行内块元素，就可以只用和字一样长的红条盖住灰线 */
+            display:inline-block; 
+            border-top: 1px;
+            border-top-style: solid;    
+            border-top-color: red;
+        } 
+        div.img{
+            width: 300px;
+            height: 150px;
+        }
+        div ul{
+            margin-top: 14px;
+        }
+        .ur-list li{
+            padding-left: 15px;
+            width: 285px;
+            height: 30px;
+            font-size: 14px;
+            line-height: 30px; 
+                  
+        } 
+        div a:link{
+            color: black;
+            text-decoration:none;
+            color: #666666; 
+        } 
+        div a:visited{
+            color:#666666 ;
+        }
+        div a:hover{
+            color: red;
+        } 
+    </style>
+
+</head>
+<body>
+    <div class="right"> 
+        <div class="title"><a href="http://war.163.com/">军事</a><span>·</span><a href="http://news.163.com/air/">航空</a></div> 
+        <div class="img"><a href="http://war.163.com/photoview/4T8E0001/2308250.html"><img src="./img/QQ截图20200504134925.png" alt=""></div></a>
+        <div class="ur-list">
+            <ul>
+                <a href="http://war.163.com/photoview/4T8E0001/2308252.html"><li>陆军全员吉利服作战小队荒漠实战演练</li></a>
+                <a href="http://war.163.com/photoview/4T8E0001/2308251.html"><li>俄罗斯铠甲s1导弹系统结构非常紧凑</li></a>
+                <a href="http://news.163.com/air/photoview/56NT0001/2308255.html"><li>五一假期香港北京道客流稀少</li></a>
+                <a href="http://news.163.com/air/photoview/56NT0001/2308254.html"><li>航拍广西千亩茶园：美景引客来</li></a>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
