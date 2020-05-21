@@ -8,7 +8,8 @@
     <script src="./showPic.js"></script>
 </head>
 <body>
-    <h1>JS图片库练习</h1>
+    <div class="list">
+        <h1>JS图片库练习</h1>
     <ul>
         <li><a href="./img/1.png" title="天猫" onclick="showPic(this);return false;">1</a></li>
         <li><a href="./img/2.png" title="抵钱" onclick="showPic(this); return false;">2</a></li>
@@ -18,6 +19,10 @@
         <li><a href="./img/6.png" title="充值" onclick="showPic(this); return false;">6</a></li>
         <li><a href="./img/7.png" title="划算" onclick="showPic(this); return false;">7</a></li>
     </ul>
-    <div><img id="show" src="./img/10.png" alt=""></div>
+    </div>
+    <div class="img">
+        <img id="show" src="./img/10.png" alt="">
+        <p id="description">选择一个图片</p>
+    </div>
 </body>
 </html>

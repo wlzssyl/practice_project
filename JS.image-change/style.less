@@ -1,13 +1,35 @@
-ul a{
-    display: block;
-    padding: 5px;
-    text-decoration: none; 
-    color: black;  
+*{
+    margin:10px auto;
 }
+.list{
+    width: 600px;
+    text-align: center;
+    ul {
+        display: flex;
+        justify-content:space-between;
+        width: 500px;
+        a{
+        display: block;
+        padding: 0 5px;
+        text-decoration: none; 
+        color: black; 
+         }
+        li{
+            flex: auto;
+            list-style: none;
+            font-size: 18px;
+        } 
+    }
+}
+
 ul a:hover{
     color: red;
 }
-ul li{
-    list-style: none;
-    font-size: 18px;
+.img{
+    width: 183px;
+    text-decoration: center;
+    p{
+        display: flex;
+        justify-content: space-around;
+    }
 }
