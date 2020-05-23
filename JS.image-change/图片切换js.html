@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>图片切换</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./showPic.js"></script>
 </head>
 <body>
     <div class="list">
         <h1>JS图片库练习</h1>
-    <ul>
-        <li><a href="./img/1.png" title="天猫" onclick="showPic(this);return false;">1</a></li>
-        <li><a href="./img/2.png" title="抵钱" onclick="showPic(this); return false;">2</a></li>
-        <li><a href="./img/3.png" title="拍卖" onclick="showPic(this); return false;">3</a></li>
-        <li><a href="./img/4.png" title="外卖" onclick="showPic(this); return false;">4</a></li>
-        <li><a href="./img/5.png" title="超市" onclick="showPic(this); return false;">5</a></li>
-        <li><a href="./img/6.png" title="充值" onclick="showPic(this); return false;">6</a></li>
-        <li><a href="./img/7.png" title="划算" onclick="showPic(this); return false;">7</a></li>
+    <ul id="img-list">
+        <li><a href="./img/1.png" title="天猫" >1</a></li>
+        <li><a href="./img/2.png" title="抵钱" >2</a></li>
+        <li><a href="./img/3.png" title="拍卖" >3</a></li>
+        <li><a href="./img/4.png" title="外卖" >4</a></li>
+        <li><a href="./img/5.png" title="超市" >5</a></li>
+        <li><a href="./img/6.png" title="充值" >6</a></li>
+        <li><a href="./img/7.png" title="划算" >7</a></li>
     </ul>
     </div>
     <div class="img">
         <img id="show" src="./img/10.png" alt="">
         <p id="description">选择一个图片</p>
     </div>
+    <!-- 写在所有内容后面，body前面 -->
+    <script src="./showPic.js"></script>
 </body>
 </html>
