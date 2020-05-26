@@ -2,8 +2,7 @@
 //alert(100);
 console.log(1);
 
-//.onload是网页加载完毕触发的事件，把点击事件绑给.onload
-window.onload = prepareGallery;
+
 //遍历所需标签a，并把图片切换函数给a标签
 function prepareGallery(){
     if(!document.getElementsByTagName){
@@ -42,6 +41,63 @@ function showPic(whichpic){
     return true; //与fasle对应
 }
 
+//图片展示区用DOM创建
+function preparePlacehloder(){
+    //首先保证兼容
+    if(!document.createElement) return false;
+    if(!document.createTextNode) return false;
+    if(!document.getElementById) return false;
+    if(!document.getElementById("img-list")) return false;
+    //添加节点
+    var imgDiv = document.createElement("div");
+    var imgPlace = document.createElement('img');
+    var txtPlace = document.createElement("p");
+    imgDiv.setAttribute("class","img");
+    imgPlace.setAttribute("src","./img/10.png");
+    imgPlace.setAttribute("id","show");
+    imgPlace.setAttribute("alt","图片显示位置");
+    txtPlace.setAttribute("id","description");
+    //insertAfter(new,target);向target节点后面插入new节点
+    insertAfter(imgDiv,document.getElementById("img-list"));
+    imgDiv.appendChild(imgPlace);
+    insertAfter(txtPlace,imgDiv);
+    var imgTxt = document.createTextNode("选择一个图片");
+    txtPlace.appendChild(imgTxt);
+    //parent.insertBefore(new,target)方法,
+    //可以将new节点插入到target节点前
+}
+
+
+//为.onload绑定事件
+function addLoadEvent(func){
+    var oldonload = window.onload;
+    if(window.onload != 'function'){
+        window.onload = func();
+    }
+    else{
+        window.onload = function(){
+            oldonload();
+            func(); 
+        }
+           
+    }
+ }
+
+//.insertAfter函数，在结点树某处插入节点
+function insertAfter(newElement,targetElment){
+    var parent = targetElment.parentNode;
+    if(parent.lastChild == targetElment){
+        parent.appendChild(newElement);
+    }
+    else{
+        parent.insertBefore(newElement,targetElment.nextSibling);
+    }
+}
+
+//.onload是网页加载完毕触发的事件，把事件绑给.onload
+addLoadEvent(preparePlacehloder);
+addLoadEvent(prepareGallery);
+
 
 
  function countBodyChildren(){
@@ -68,6 +124,14 @@ function showPic(whichpic){
    - 练习中return false覆盖了原本功能，需要用return showPic(this)
       解决平稳退化
  * 
+ */
+/**2020.5.25
+ * - document.createElement("div")   该方法可创建元素节点
+ * - document.createTextNode("123456")  该方法可创建文本节点
+ * - 属性节点用setAttribute(" "," ") 即可
+ * - parentNode.appendChild(new) 该方法可在子节点最后插入new子节点
+ * - parentNode.inserBefore(new,target) 该方法可在target节点前插入new节点
+ * - .innerHTML方法，把所有内容暴力插入与替换 
  */
 
 
