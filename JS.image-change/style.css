@@ -21,6 +21,9 @@
   list-style: none;
   font-size: 18px;
 }
+.list ul img {
+  width: 100%;
+}
 ul a:hover {
   color: red;
 }
