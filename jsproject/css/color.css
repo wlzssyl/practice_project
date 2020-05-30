@@ -1,0 +1,50 @@
+body{
+    color:rgb(255, 100, 0);
+    background-color: #bff;
+}
+a:link{
+    color: #fff;
+    background-color: #59a1e9;
+}
+a:visited{
+    color: #fff;
+    background-color: #59a1e9;
+}
+a:hover{
+    color:#59a1e9;
+    background-color: #fff;
+}
+a:active{
+    color:#778;
+    background-color: #ec8;
+}
+header{
+    color: #ec8;
+    /* background-color: rgb(169, 193, 223); */
+}
+nav{
+    color: #455;
+    background-color: #59a1e9;
+}
+article{
+    color: #000;
+    background-color: rgba(199, 199, 185, 0.726);
+}
+header nav a:link,
+header nav a:visited{
+    color: #fff;
+    background-color: #59a1e9; 
+}
+header nav a:hover{
+    color:#59a1e9;
+    background-color: #fff;
+}
+header nav a:active{
+    color:#778;
+    background-color: rgb(255, 212, 125);
+}
+/* 类here的样式 */
+header nav  a.here{
+    color:#59a1e9;
+    background-color: #fff;
+}

@@ -1,0 +1,14 @@
+@import url(color.css);
+@import url(layout.css);
+@import url(typography.css);
+* {
+  padding: 0;
+  margin: 0;
+}
+* li {
+  list-style: none;
+}
+* a {
+  text-decoration: none;
+}
+/*# sourceMappingURL=./style.css.map */

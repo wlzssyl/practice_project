@@ -1,0 +1,25 @@
+body{
+    font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body *{
+    font-size: 1em;
+}
+a{
+    font-weight: bold;
+}
+header nav a{
+    font-weight: normal;
+}
+article p{
+    margin: 0.8em 0;
+}
+h1{
+    font: 1.8em normal;
+}
+h2{
+    font: 1em normal;
+}
+h3{
+    font: 1em normal;
+}
