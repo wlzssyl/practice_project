@@ -5,18 +5,24 @@ body{
 }
 header  .head-img{
     display: block;
-    height: 300px;
+    height: 320px;
     overflow: hidden;
     background-image: url("../img/5.1.png");
     background-position: left center ;
     background-size: 100%;
 }
 /* 响应式布局 */
-@media only screen and (max-width:768px){
+@media only screen and (min-width:768px) and (max-width:1200px){
     header  .head-img{
         height: 200px;
     }
 }
+@media only screen and (max-width:767px){
+    header .head-img{
+        height: 150px;
+    }
+}
+
 
 header nav ul{
     display: flex;
@@ -52,4 +58,36 @@ article{
 }
 #更多 .head-img{
     background-image: url("../img/9zhu.png");
+}
+/* 主页预览图 */
+#picshow{
+    width: 250px;
+    margin:0 auto;
+}
+#picshow img{
+    width: 100%;
+}
+/* 详情页nav导航样式 */
+.about nav li{
+    line-height: 2em;
+    margin-top: 1em;
+    list-style: inside;
+}
+.about section ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+.about section#main img{
+    width: 250px;
+    margin-top: 0.8em;
+}
+.about section img{
+    width: 330px;
+    margin-top: 0.8em;
+}
+.about section span{
+    display: block;
+    font-weight: bold;
 }

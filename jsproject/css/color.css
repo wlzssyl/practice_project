@@ -3,16 +3,16 @@ body{
     background-color: #bff;
 }
 a:link{
-    color: #fff;
-    background-color: #59a1e9;
+    color: #000;
+    background-color: #f1f508;
 }
 a:visited{
-    color: #fff;
-    background-color: #59a1e9;
+    color: #000;
+    background-color: #f1f508;
 }
 a:hover{
-    color:#59a1e9;
-    background-color: #fff;
+    color:#ff3300;
+    background-color: #f1f508;
 }
 a:active{
     color:#778;
@@ -23,8 +23,8 @@ header{
     /* background-color: rgb(169, 193, 223); */
 }
 nav{
-    color: #455;
-    background-color: #59a1e9;
+    color: #333;
+    /* background-color: #59a1e9; */
 }
 article{
     color: #000;
@@ -47,4 +47,9 @@ header nav a:active{
 header nav  a.here{
     color:#59a1e9;
     background-color: #fff;
+}
+/* 详情页nav导航样式 */
+.about nav a{
+    background-color: rgba(0, 0, 0, 0);
+   
 }
