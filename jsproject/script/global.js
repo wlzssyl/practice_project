@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 //highLightPage函数
 function highLightPage(){
     if(!document.getElementsByTagName) return false;
@@ -18,8 +12,7 @@ function highLightPage(){
            // addClass(links[i],"here");
            //将当前页面路径最后一个子元素值设为body的id
            var linktext = links[i].lastChild.nodeValue.toLowerCase();
-           document.body.setAttribute("id",linktext);
-           
+           document.body.setAttribute("id",linktext);          
         }
     }
 }
@@ -84,9 +77,89 @@ function prepareInternalnav(){
     }
 }
 
+//photo图片页
+//showPic函数
+function showPic(whichpic){
+    if(!document.getElementById("placeholder")) return true;
+    var sourse = whichpic.getAttribute("href");
+    var placeholder = document.getElementById("placeholder");
+    placeholder.setAttribute("src",sourse);
+    if(whichpic.getAttribute("title")){
+        var text = whichpic.getAttribute("title");
+    }
+    else{
+        var text = "";
+    }
+    var description = document.getElementById("description");
+    if(description.lastChild.nodeType ==3){
+        description.lastChild.nodeValue = text;
+    }
+    return false;
+}
+//preparePlaceHolder()函数
+function preparePlaceHolder(){
+    if(!document.getElementById("img-list")) return false;
+    //使用DOM方法创建img和p元素节点，还有文本节点
+    var placeholder = document.createElement("img");
+    var description = document.createElement("p");
+    var des_text = document.createTextNode("点击图片预览大图");
+    placeholder.setAttribute("id","placeholder");
+    description.setAttribute("id","description");
+    description.appendChild(des_text);
+    insertAfter(description,document.getElementById("img-list"));
+    insertAfter(placeholder,description);
+    //遍历a元素节点并调用showPic函数
+    var imgs = document.getElementById("img-list");
+    var links = imgs.getElementsByTagName("a");
+    for(var i=0;i<links.length;i++){
+        links[i].onclick = function(){
+            return showPic(this);  //这里使用匿名函数
+        }
+    }
+}
+//动画页
+//给表格添加偶数行颜色改变样式stripeTables()函数
+function stripeTables(){
+    if(!document.getElementById("anime")) return false;
+    var tables = document.getElementsByTagName("table");
+    for(var i=0;i<tables.length;i++){
+        var rows = tables[i].getElementsByTagName("tr");
+        var odd = false;
+        for(var j=0;j<rows.length;j++){
+            if(odd == true){
+                 //rows[j].style.backgroundColor = "#fff";
+                addClass(rows[j],"odd");
+                odd = false;
+            }
+            else{
+                odd = true;
+            }
+        }
+    }  
+}
+//给表格hover效果，hightlightRows()函数
+function highlightRows(){
+    // if(!document.getElementById("anime")) return false;
+    var tables = document.getElementsByTagName("table");
+    var rows = document.getElementsByTagName("tr");
+    for(var i=0;i<rows.length;i++){
+        rows[i].oldClassName = rows[i].className;
+        rows[i].onmouseover = function(){
+            addClass(this,"highlight");
+        }
+        rows[i].onmouseout = function(){
+        this.className = this.oldClassName;
+        }
+    }
+}
+
+
 addLoadEvent(highLightPage);
 addLoadEvent(preparePicshow);
 addLoadEvent(prepareInternalnav);
+addLoadEvent(preparePlaceHolder);
+addLoadEvent(stripeTables);
+addLoadEvent(highlightRows);
 
 
 
@@ -145,4 +218,16 @@ function addLoadEvent(func){
       -  var sectionID = links[i].getAttribute("href").split("#")[1];
           此处.split(" ")[ ]方法，可根据分隔符返回两个字符串，括号里为分隔符
           即string.split()[0]和string.split()[1]
+ * 6.01
+      - var imgs = document.getElementById("img-list");
+        var links = imgs.getElementsByTagName("a");
+        for(var i=0;i<links.length;i++){
+            links[i].onclick = function(){
+                return showPic(this);  这里要返回showPic函数
+            }
+         }     
+      -  rows[i].oldClassName = rows[i].className;
+         创建新属性，把之前的类名存入。
+         在onmouseout方法时更换为旧类名即可
+ *
  */

@@ -91,3 +91,31 @@ article{
     display: block;
     font-weight: bold;
 }
+/* 图片页样式 */
+#img-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#img-list li{   
+    width: 20vw;  
+    margin-top: 1em;
+}
+#img-list img{
+    width: 100%;
+    vertical-align: middle;
+}
+#description{
+    font-size: 2vw;
+}
+#placeholder{
+    width: 70vw;
+}
+/* 动画页 */
+table{
+    margin: 2vw auto;   
+}
+td{
+    padding: 1vw 6vw;
+    text-align: center;
+}

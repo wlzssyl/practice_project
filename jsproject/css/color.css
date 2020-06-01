@@ -53,3 +53,19 @@ header nav  a.here{
     background-color: rgba(0, 0, 0, 0);
    
 }
+/* 动画页 */
+th{
+    color: #edc;
+    background-color: rgb(59, 68, 121);
+}
+tr {
+    color: #223;
+    background-color: rgb(102, 195, 238);
+}
+.odd {
+    background-color: rgb(196, 209, 208);
+}
+.highlight{
+    color: #000;
+    background-color: #edf099;
+}
