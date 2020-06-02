@@ -119,3 +119,16 @@ td{
     padding: 1vw 6vw;
     text-align: center;
 }
+/* 更多页面 */
+#log-in,
+#log-in1{
+    margin: 1vw auto;
+}
+
+#log-in label,
+textarea{
+    display: block;
+}
+#log-in fieldset{
+    border: 0;
+}

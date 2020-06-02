@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鬼灭之刃（ufotable改编的电视动画）</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <header>
-        <div  class="head-img" ></div>
+        <div class="head-img"></div>
         <nav>
             <ul>
                 <li><a href="index.html">主页</a></li>
@@ -20,8 +22,45 @@
         </nav>
     </header>
     <article>
-       
+        <h1>更多信息请注册</h1>
+        <form  action="submit.html" id="log-in">
+            <fieldset>
+                <p>
+                    <label for="name">注册账号：</label>
+                    <input type="text" id="name" name="name" placeholder="QQ邮箱" required="required">
+                </p>
+                <p>
+                    <label for="password1">输入密码：</label>
+                    <input type="password" id="password1" name="password1" placeholder="数字和字母" required="required">
+                </p>
+                <p>
+                    <label for="password2">确认密码：</label>
+                    <input type="password" id="password2" name="password2" placeholder="再次输入密码" required="required">
+                </p>
+                <button type="submit">立即注册</button>
+            </fieldset>
+        </form>
+        <form action="submit.html" id="log-in1">
+            <label for="message">对本站有何希望或建议,欢迎来信。</label>
+            <textarea name="message" id="message" cols="36" rows="10" placeholder="说点什么......"
+                required="required"></textarea>
+            <button type="submit">点我提交</button>
+        </form>
     </article>
-<script src="./script/global.js"></script>
+    <script src="./script/global.js"></script>
 </body>
+
 </html>
+<!-- 6.02小结 -->
+<!-- * <form method="post" action="submit.html" id="log-in">
+       form表单，method规定用于发送 form-data 的 HTTP 方法。
+                action发送的地址
+     * <label for="name">注册账号：</label>
+        label，for规定 label 绑定到哪个表单元素（与之id对应），可以帮助获取焦点
+     * <textarea name="message" id="message" cols="36" rows="10"
+        placeholder="说点什么......" required="required">
+         文本框，cols列 rows行，placeholder占位符-即框里默认显示的文字
+         required="required"表示必填字段
+     * input与button
+        button 标签之间的所有内容都是按钮的内容
+        input 有不同的type属性。-->

@@ -139,7 +139,7 @@ function stripeTables(){
 }
 //给表格hover效果，hightlightRows()函数
 function highlightRows(){
-    // if(!document.getElementById("anime")) return false;
+    if(!document.getElementById("anime")) return false;
     var tables = document.getElementsByTagName("table");
     var rows = document.getElementsByTagName("tr");
     for(var i=0;i<rows.length;i++){
@@ -152,7 +152,40 @@ function highlightRows(){
         }
     }
 }
-
+//更多页
+//isemail函数,含有@和.就return true
+function isEmail(field){
+    return (field.value.indexOf("@") != -1 && field.value.indexOf(".") !=-1);
+}
+//validateForm函数，若返回true表示表单可以提交给服务器，返回false提交会被取消
+function validateForm(whichform){   
+    for(var i=0;i<whichform.elements.length;i++){
+        var element = whichform.elements[i];
+        if(element.name == 'name'){
+            if(!isEmail(element)){
+                alert("用户名邮箱格式不正确。");
+                return false;
+            }
+        }
+        if(element.name == 'message'){
+            if(!isEmail(element)){
+                alert("内容已提交，感谢您的支持！");
+                return false;
+            }
+        }
+    }
+    return true;
+}
+//prepareForms函数，准备提交表单
+function prepareForms(){
+    if(!document.getElementById("log-in")) return false;
+    for(var i=0;i<document.forms.length;i++){
+        var thisform = document.forms[i];
+        thisform.onsubmit = function(){
+            return validateForm(this);//若返回false,则拒绝提交
+        }
+    }
+}
 
 addLoadEvent(highLightPage);
 addLoadEvent(preparePicshow);
@@ -160,6 +193,7 @@ addLoadEvent(prepareInternalnav);
 addLoadEvent(preparePlaceHolder);
 addLoadEvent(stripeTables);
 addLoadEvent(highlightRows);
+addLoadEvent(prepareForms);
 
 
 
@@ -230,4 +264,7 @@ function addLoadEvent(func){
          创建新属性，把之前的类名存入。
          在onmouseout方法时更换为旧类名即可
  *
+ * 6.02
+ *    - element.focus();在某元素上获取光标焦点 
+ *      element.onblur();焦点移出触发
  */
