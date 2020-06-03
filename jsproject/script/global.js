@@ -168,10 +168,8 @@ function validateForm(whichform){
             }
         }
         if(element.name == 'message'){
-            if(!isEmail(element)){
                 alert("内容已提交，感谢您的支持！");
                 return false;
-            }
         }
     }
     return true;
@@ -182,10 +180,65 @@ function prepareForms(){
     for(var i=0;i<document.forms.length;i++){
         var thisform = document.forms[i];
         thisform.onsubmit = function(){
-            return validateForm(this);//若返回false,则拒绝提交
+            if(!validateForm(this)) return false;
+            //return validateForm(this);//若返回false,则拒绝提交
+            var article = document.getElementsByTagName("article")[0];
+            if(submitFormWithAjax(this,article)) return false;
+            return true;
         }
     }
 }
+//利用Ajax，submitFormWithAjax函数,第一个参数是form对象，第二个是目标替换对象
+function submitFormWithAjax(whichform,thetarget){
+    var request = new XMLHttpRequest;
+    if(!request) return false;
+    dispalyAjaxLoading(thetarget);
+    var dataParts = [];
+    var element;
+    for(var i=0;i<whichform.elements.length;i++){
+        element = whichform.elements[i];
+        dataParts[i] = element.name + '=' +encodeURIComponent(element.value);
+        //encodeURIComponent()函数把表单里元素值编码成URL字符串，以便传送
+    }
+    var data = dataParts.join('&');//收到所有数据后用&符号连接起来
+    //向表单action属性指定的处理函数发送post请求
+    request.open('GET',whichform.getAttribute("action"),true);
+    //并在请求中添加application/x-www-form-urlencoded头部，这对于POST是必须的
+    request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    //onreadystatechange会在服务器给XMLHttpRequest对象送回响应时被触发执行，它是一个事件处理函数
+    request.onreadystatechange = function(){
+        if(request.readyState == 4){
+            //console.log(request.readyState);//调试使用
+          //  console.log(request.status); //调试使用
+            if(request.status == 200||request.status == 0){
+                //正则表达式，捕获article标签里内容
+                var matches = request.responseText.match(/<article>([\s\S]+)<\/article>/);
+                if(matches.length>0){
+                    //innerHTML方法替换
+                    thetarget.innerHTML = matches[1];
+                }
+                else{
+                    thetarget.innerHTML = '<p>出现了一个错误。</p>';
+                }
+            }
+            else{
+                thetarget.innerHTML = '<p>'+request.statusText+'</p>';
+            }
+        }
+    }
+    request.send(data);
+    return true;
+}
+//dispalyAjaxLoading函数，就是删除元素添加load图片
+function dispalyAjaxLoading(element){
+    while(element.hasChildNodes()){
+        element.removeChild(element.lastChild);
+    }
+    var content = document.createElement("img");
+    content.setAttribute("src","./img/loading.gif");
+    // element.appendChild(content);
+}
+
 
 addLoadEvent(highLightPage);
 addLoadEvent(preparePicshow);
@@ -267,4 +320,21 @@ function addLoadEvent(func){
  * 6.02
  *    - element.focus();在某元素上获取光标焦点 
  *      element.onblur();焦点移出触发
+ * 
+ * 6.03
+ *    - var request = new XMLHttpRequest;
+        request.open('POST',whichform.getAttribute("action"),true);
+         POST如果给静态页面传数据的话，一般会报405错，即不被允许。因此代码中用的GET
+      - request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+         如果用POST，上述代码是必要的
+      - request.onreadystatechange = function(){ }
+         .onreadystatechange方法是一个事件处理函数，
+         会在服务器给XMLHttpRequest对象送回响应时被触发执行。
+      - request.readyState
+         .readyState会返回0-4，五种值。
+            0: 请求未初始化
+            1: 服务器连接已建立
+            2: 请求已接收
+            3: 请求处理中
+            4: 请求已完成，且响应已就绪
  */
