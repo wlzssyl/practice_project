@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arry = [0,5,6,1,1,5,2,2,3,4,1,0,5,1];
+        for(var j=0;j<arry.length;j++)
+        for(var i=0;i<=arry.length;i++){
+            var temp=0;
+            if(arry[i] > arry[i+1]){
+                temp = arry[i+1];
+                arry[i+1] = arry[i];
+                arry[i] = temp;
+            }
+        }
+        for(var i=0;i<arry.length;i++){
+            if(arry[i] == arry[i+1]){
+                arry.splice(i,1); 
+                 i--;         
+            }
+        }
+        console.log(arry);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
