@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //正则表达式
+        //创建对象
+        //var reg = new RegExp("");
+
+        //判断手机号正则表达式
+        //第一位是1   第二位3-9   后九位0-9
+        var phoneReg = /^1[3-9][0-9]{9}$/;
+        var phone = 13845645645;
+        console.log(phoneReg.test(phone));
+
+        //判断邮箱名正则表达式
+        //任意数字字母下划线  .任意数字字母下划线  @  任意字母数字 .任意字母（2-5） .任意字母（2-5）
+        //\w+  (\.\w+)*   @  [A-z0-9]+   (\.[A-z]{2,5}) {1,2}
+        var emailReg = /^\w+(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+        //^和$要加上，否则是从字符串里找一部符合的
+        var email = "asd@qq.com";
+        console.log(emailReg.test(email));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
