@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跟随鼠标移动</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+        }
+        body{
+            height: 1000px;
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        window.onload = function(){
+            var box = document.getElementById("box");
+            document.onmousemove = function(event){              
+                //pageX  ie8不兼容
+                //var left = window.event.pageX;
+                //var top = window.event.pageY;
+                var left = window.event.clientX;
+                var top = window.event.clientY;
+                var sl = document.documentElement.scrollLeft;
+                var st = document.documentElement.scrollTop;
+                //client、page返回的是数值，要+“px”变成字符串
+                box.style.left = left+sl+"px";
+                box.style.top = top+st+"px";
+                console.log(left);
+            }
+        }
+    </script>
+</body>
+</html>
