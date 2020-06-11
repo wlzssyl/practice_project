@@ -17,12 +17,34 @@
     <div id="box"></div>
 
     <script>
-        window.onload = key(50);
-        function key(speed){
+        window.onload = key(10);
+        function key(speed){           
             var box = document.getElementById("box");
-            document.onkeydown = function(event){
-                //Unicode编码，左 上 右 下 = 37 38 39 40 
-                switch(event.keyCode){
+            //声明按键编码值
+            var keyCode;
+            //根据键盘按键，确定方向
+            document.onkeydown = function(event){             
+                //如果按下CTRL键则加速
+                if(event.ctrlKey){
+                    speed = 15;
+                }
+               // else{
+                  //  speed = 5;
+               //}  
+                //把方向键传给计时器
+                keyCode = event.keyCode;                     
+            }
+            //松开键则停止
+            document.onkeyup = function(event){
+                if(event.keyCode == keyCode)
+                keyCode = 0;
+                if(event.ctrlKey == false)
+                speed = 5
+            }
+            //计时器根据方向键运动
+            setInterval(function(){
+                 //Unicode编码，左 上 右 下 = 37 38 39 40 
+                 switch(keyCode){
                     case 37:
                         box.style.left = box.offsetLeft-speed+"px"; break;
                     case 38:
@@ -31,8 +53,9 @@
                         box.style.left = box.offsetLeft+speed+"px"; break;
                     case 40:
                         box.style.top = box.offsetTop+speed+"px"; break;
-                }
-            }
+                 }
+            },30);
+
         }
     </script>
 </body>
