@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#img-div{
+    //overflow: hidden;
+    width: 520px;
+    height: 210px;
+    margin: 10px auto;
+    background-color: #bfa;
+    position: relative;
+    >#img-list{
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        // left: -520px;
+        li{
+            list-style: none;
+            width: 500px;
+            margin: 10px;            
+        }
+        img{
+            width: 100%;
+            vertical-align: top;
+        }
+    }
+}
+#pointer{
+    position: absolute;
+    // left: 100px ;由js设置
+    bottom: 15px;
+    li{
+        float: left;
+        background-color: rgba(146, 135, 135, 0.637);
+        width: 10px;
+        height: 10px;
+        list-style: none;
+        margin-right: 10px;
+        border: 2px solid #fff;
+        border-radius: 7px;
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+#pointer li:hover{
+    background-color: #fff;
+    border: 2px solid rgba(146, 135, 135, 0.637);
+}
