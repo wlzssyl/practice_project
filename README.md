@@ -4,13 +4,13 @@
 
 ---
 
-   * 1. 学习HTML/CSS
+   +  学习HTML/CSS
 
-   * 2. 学习怎么使用git (进行中) 
+   +  学习怎么使用git (进行中) 
 
-   * 3. 学习JavaScript (进行中)
+   +  学习JavaScript (进行中)
 
-   * 4. 学习node.js (进行中)
+   +  学习node.js (进行中)
 
  ... ... 
 
