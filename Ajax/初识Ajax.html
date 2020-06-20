@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax初见</title>
+    <script>
+        window.onload = function(){
+            /**
+ * 使用XMLHttpRequest对象实现Ajax
+ * XMLHttpRequest对象有若干属性和方法
+ *  - open("method","url"); method是请求方式（GET,POST），url是请求的地址
+ *  - send(content);  发送内容
+ *  - onreadystatechange事件
+ *  - readyState会触发此事件它的值为0，1，2，3，4，
+ *          是4的时候交互完成，
+ *  - status 服务器状态码200（ok），404（not found）
+ *  - responseText 表示服务器返回的文本字符串
+ */
+document.getElementById("ajax").onclick = function(){
+    //创建XMLHttpRequest对象
+    var request = new XMLHttpRequest();
+    request.open("GET","../node.js/hello.txt");
+    request.send(null);
+    request.onreadystatechange = function(){
+        if(request.readyState == 4){
+            if(request.status == 200 || request.status == 304){
+            document.getElementById("ajax").innerText = request.responseText;
+            }
+        }
+    }
+    return false;
+}
+
+        }
+    </script>
+</head>
+<body>
+        <a id="ajax" href="../node.js/hello.txt">hello.txt</a>
+</body>
+</html>
