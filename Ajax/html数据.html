@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html的接收</title>
+    <script>
+        window.onload = function(){
+            var div =  document.getElementById("div");
+            document.getElementById("button").onclick = function(){
+                //创建xmlhttprequest对象并向服务器请求
+                var request = new XMLHttpRequest();
+                request.open("GET","./HTML.html");
+                request.send(null);
+                request.onreadystatechange = function(){
+                    console.log(request.status);
+                    console.log(request.responseText);                  
+                    if(request.readyState == 4){
+                        if(request.status == 200 || request.status == 304){
+                            div.innerHTML = request.responseText;
+                        }
+                    }
+                }
+            }
+  
+            
+        }
+    </script>
+</head>
+<body>
+    <button id="button">接收服务器响应</button>
+    <div id="div"></div>
+</body>
+</html>
