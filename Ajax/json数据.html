@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json数据接收</title>
+    <script>
+        window.onload = function(){
+            var div = document.getElementById("div");
+            var button = document.getElementsByTagName("input")[0];
+            button.onclick = function(){
+                var request = new XMLHttpRequest();
+                request.open("GET",button.value);
+                request.send(null);
+                request.onreadystatechange = function(){
+                    if(request.readyState == 4){
+                        if(request.status == 200 || request.status == 304){
+                            //JSON.parse方法可以将json字符串转化为js对象
+                            var jsonObj = JSON.parse(request.responseText);
+                            //console.log(jsonObj);
+                            //在添加节点前，把div变成空否则一直点会一直加
+                            div.innerHTML = "";
+                            //将json对象中的p,h2作为文本节点创建
+                            var h2 = document.createTextNode(jsonObj.h2);
+                            var p = document.createTextNode(jsonObj.p);
+                            console.log(jsonObj.object);
+                            //创建h2,p节点并连上div
+                            var h2Node = document.createElement("h2");
+                            var pNode = document.createElement("p");
+                            h2Node.appendChild(h2);
+                            pNode.appendChild(p);
+                            div.appendChild(h2Node);
+                            div.appendChild(pNode);
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" name="zhuce" value="JSON.js">
+    <div id="div"></div>
+</body>
+</html>
