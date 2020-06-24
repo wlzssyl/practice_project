@@ -18,7 +18,7 @@ p1.then(function(res){ //第一个参数(函数)是异步成功时resolve会调�
 //注意resolve（）里的参数可以传到then后面的函数里，reject同理。
 
 //用promise封装Ajax**********************************************
-var httpURL = "https://api.apiopen.top/getJoke?page=1&count=2&type=video";
+var httpURL = "https://1api.apiopen.top/getJoke?page=1&count=2&type=video";
 var Ajax_P = getAjax(httpURL);
 function getAjax(url){
     return new Promise((resolve,reject) => {
@@ -28,7 +28,7 @@ function getAjax(url){
             if(request.readyState == 4){
                 if(request.status == 200 || request.status == 304){
                     //请求成功，则执行resolve
-                    resolve(request);
+                    resolve(request.response);
                 }
                 else{
                     //请求失败，则执行reject
@@ -53,4 +53,22 @@ p2.then(function(res){
 },function(){
     console.log("请求失败。");
 });
+/********************************************************
+ * promise其他方法
+ * 1.直接创建promise对象
+ *  - Promise.resolve("这创建的是成功的promise")
+ *  - Promise.reject("这创建的是失败的promise")
+ */
+var p3 = Promise.resolve("这创建的是成功的promise");
+var p4 = Promise.reject("这创建的是失败的promise");
+console.log(p3);
+console.log(p4);
+/********************************************************
+ * 2.Promise.all()和Promise.race()方法
+ *  - 都需要传入一个包含promise对象的数组
+ *  - Promise.all()是把数组中所有promise对象包装，等数组所有promise
+ *     统一都异步完成后，.all()返回一个promise对象，即可做一些事情
+ *  - Promise.race()与.all()不同的是，只要数组有一个promise的异步完成
+ *     .race()就会返回一个promise对象，即可执行限免的代码
+ */
 
