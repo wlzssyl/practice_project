@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插值</title>
+    <style>.red{width: 100px;height: 100px;background-color:red;}</style>
+</head>
+<body>
+    <!-- v-html = "..." 将html字符串转为html格式显示 -->
+    <p id="p" v-html = "htmlData"></p>
+    <!-- v-text = "..." 将数据以文本显示 -->
+    <!-- v-pre 将数据以文本显示 -->
+    <!-- v-cloak  
+        Vue在解析前，标签中有v-cloak属性
+        Vue在解析后，标签中v-cloak属性消失 -->
+    <!-- ------------------------------------ -->
+    <!-- v-bind 动态绑定属性 -->
+    <a id="bind" v-bind:href="aHrel">可以动态改变链接地址</a>
+    <!-- 用v-bind动态绑定属性改变class类名 -->
+    <!-- v-bind:class="{类名1：Boolean，类名2：Boolean...}"
+                      这个对象里键值是类名，属性值是布尔型
+                      当布尔型是ture时则该类名生效，false不生效 -->
+    <div id="app" v-bind:class="{red:boolRed,blue:boolBlue}"></div>
+    <!-- v-bind：class可以与普通类名 class=" "共存 -->
+
+    <script src="./vue/vue.js"></script>
+    <script>
+        var p = new Vue({
+            el:"#p",
+            data:{
+                htmlData:"<p>我是html格式</p>"
+            }
+        });
+
+        var bind = new Vue({
+            el:"#bind",
+            data:{
+                aHrel:"https://www.baidu.com/"
+            }
+        }); 
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+                boolRed:"true"//true则使该red类名生效
+            }
+        });
+    </script>
+</body>
+</html>
