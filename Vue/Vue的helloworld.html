@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vue hello</title>
 </head>
 <body>
     <div id="app">
         <p>{{message}}</p>
         <p>{{message2}}</p>
+        <ul>
+            <li v-for = "item in movies">{{item}}</li>
+        </ul>
+        <div>{{count}}</div>
+        <button v-on:click = "add">点我+1</button>
     </div>
 
     <script src="./vue/vue.js"></script>
@@ -17,9 +22,17 @@
             el:"#app",
             data:{
                 message:"hello",
-                message2:"world"
+                message2:"world",
+                movies:["电影1","电影2","电影3","电影4"],
+                count:0
+            },
+            methods:{
+                add:function(){
+                    return this.count++;
+                }
             }
         });
+
     </script>
 </body>
 </html>
