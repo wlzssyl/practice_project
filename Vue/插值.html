@@ -24,6 +24,11 @@
     <div id="app" v-bind:class="{red:boolRed,blue:boolBlue}"></div>
     <!-- v-bind：class可以与普通类名 class=" "共存 -->
 
+    <!-- 用v-bind动态绑定style样式 -->
+    <!-- v-bind:style="{样式名：样式值（字符串）}" -->
+    <!-- <h2 id="h2" v-bind:style = "{color:'yellow'}">我是h2</h2> -->
+    <h2 id="h2" v-bind:style = "{color:value}">我是h2</h2>
+
     <script src="./vue/vue.js"></script>
     <script>
         var p = new Vue({
@@ -43,9 +48,16 @@
         var app = new Vue({
             el:"#app",
             data:{
-                boolRed:"true"//true则使该red类名生效
+                boolRed:true//true则使该red类名生效
             }
         });
+
+        const h22 = new Vue({
+            el:"#h2",
+            data:{
+                value:"yellow"
+            }
+        })
     </script>
 </body>
 </html>
