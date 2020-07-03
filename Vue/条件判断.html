@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>条件判断</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-if与v-false    类似if...else
+          v-if="true"时，v-else不显示
+          v-if="false"时，v-else显示  -->
+    <p v-if="isTrue">我是v-if</p>
+    <p v-else="">我是v-else</p>
+    <!-- v-if与v-else-if 同上，类似if...else if...else
+          谁="true"谁显示 -->
+    <p v-if="false">我是v-if</p>
+    <p v-else-if="true">我是v-else-if1</p>
+    <p v-else-if="false">我是v-else-if2</p>
+    <p v-else>我是else</p>
+    <!-- ------------------------------------- -->
+    <!-- v-show与v-if有相同的效果
+          v-show="true"时显示，v-show="false"时不显示
+        * v-show与v-if区别在于
+          v-show="false"时是设置了内联样式display = none;
+          v-if="false"时是元素直接从DOM中删除了-->
+     <!-- 建议切换频率高时，用v-show -->
+     <!-- -------------------------------------- -->
+  </div>
+  <!-- 练习
+      实现点击按钮切换文本框 -->
+    <div id="train">
+      <label v-if="isTrue" for="userName">邮箱</label>
+      <label v-else for="userName">账号</label>
+      <input v-if="isTrue" type="text" id="userName" placeholder="输入邮箱">
+      <input v-else type="text" id="userName" placeholder="输入账号">
+      <button @click="swt">切换输入</button>
+    </div>
+
+
+  <script src="./vue/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:"#app",
+      data:{
+        isTrue:true
+      }
+    });
+    const train = new Vue({
+      el:"#train",
+      data:{
+        isTrue:true
+      },
+      methods:{
+        swt(){
+          this.isTrue = !this.isTrue;
+        }
+      }
+    })
+  </script>
+</body>
+</html>
