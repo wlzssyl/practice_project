@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>循环遍历</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <!-- v-for="(value,index) in arr
+            value是数组或者对象的元素或属性值
+            index是数组或对象的索引或属性名（键值） -->
+      <li v-for="(value,index) in arr">{{value}}-{{index}}</li>
+    </ul>
+    <ul>
+      <li v-for="(value,index) in obj">{{value}}-{{index}}</li>
+    </ul>
+  </div>
+  <!-- ------------------------------------------- -->
+  <!-- 如果要在li列表中间添加若干项，建议使用v-for时绑定一个key
+      key = "value",即key属性，每个里都有自己的key
+        这样可以提升底层性能 -->
+  <!-- ------------------------------------------- -->
+  <!-- 数组中具有响应式效果的方法有：
+        .push()
+        .pop()
+        .unshift()
+        .shift() 
+        .splice()
+        .sort()
+        .reverse()  -->
+
+  <script src="./vue/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:"#app",
+      data:{
+        arr:["aaa","bbb","ccc","ddd"],
+        obj:{
+          name:"孙",
+          age:18,
+          height:1.8
+        }
+      }
+    })
+  </script>
+</body>
+</html>
