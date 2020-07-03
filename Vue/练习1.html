@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for v-bind</title>
+    <style>.red{color: red;}</style>
+</head>
+<body>
+    <div id="app" >
+        <ul>
+            <!-- v-for="(value,index) in list" ，
+                value为数组元素或对象的属性值，index为数组索引，对象的属性名-->
+            <li v-for = "(i,index) in list"
+            v-bind:class = "className(index)"
+            v-on:click = "change(index)">{{index}}{{i}}</li>
+        </ul>
+    </div>
+
+    <script src="./vue/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                list:["黑色","红色","黄色","蓝色","绿色"],
+                //定义一个标志变量，该变量存放点击的li的索引
+                currentLi:0
+            },
+            methods:{
+                //给change函数传参，把点击的li的索引传过来
+                change:function(index){
+                    //点击某个li后，将该li的index赋给标志变量currentLi
+                    this.currentLi = index;
+                },
+                className:function(index){
+                    /* 这里index === this.currentLi用来判断
+                    *  该li的index是否和标志变量相等，若相等返回true
+                    *  使其添加red类名 */
+                    return {red:index === this.currentLi};
+                }
+            }
+        });
+    </script>
+</body>
+</html>
