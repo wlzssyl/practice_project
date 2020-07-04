@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>购物车小案例</title>
+  <style>
+    table{
+      width: 600px;
+      text-align: left;
+      border: 1px solid #e9e9e9;
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+    th,td{
+      padding: 10px;
+      border: 1px solid #e9e9e9;
+    }
+    th{
+      background-color: #f7f7f7;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cart">
+    <div v-if="books.length!=0">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>书籍名称</th>
+            <th>出版日期</th>
+            <th>价格</th>
+            <th>购买数量</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(value,index) in books">
+            <td>{{value.num}}</td>
+            <td>{{value.name}}</td>
+            <td>{{value.date}}</td>
+            <td>{{value.price | showPrice}}</td>
+            <!-- 上一行代码中"|"为过滤器 -->
+            <td>
+              <button v-on:click="decrease(index)" :disabled="isOne(index)">-</button>
+                            <!-- 或者v-bind:disabled="value.count <= 1" -->
+              {{value.count}}
+              <button @click="increase(index)">+</button>
+            </td>
+            <td><button @click="removeItem(index)">移除</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>总价格为{{total | showPrice}}</h3>
+    </div>
+    <h2 v-else>您的购物车是空的</h2>
+  </div>
+ 
+
+  <script src="../vue/vue.js"></script>
+  <script src="./购物车例子.js"></script>
+</body>
+</html>
