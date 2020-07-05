@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表单绑定</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-model表单绑定，是双向绑定的，
+          即改变表单标签的value值，vue对象里的相应数据也随之改变 
+          反之，改变vue对象的数据，表单value也改变-->
+    <label for="in">双向绑定v-model</label>
+    <input type="text" v-model="message" id="in">
+    {{message}}
+    <!-- v-model原理是使用v-bind：value = "message"
+                     和v-on：input="valueChange"
+          即1.绑定vue对象与表单value值，
+            2.监听表单的value值，若改变，把vue中数据也改掉 -->
+  </div>
+
+  <!-- ------------------------------------------------------ -->
+  <!-- 练习  v-model与radio、checkbox、select应用 -->
+  <div id="ra">
+    <label for="male">男</label>
+    <input type="radio" v-model="choose" value="male" name="gender" id="male">
+    <label for="female">女</label>
+    <input type="radio" v-model="choose" value="female" name="gender" id="female">
+    <p>{{choose}}</p>
+
+    <input type="checkbox" v-model="checks" value="A" name="checkbox">A
+    <input type="checkbox" v-model="checks" value="B" name="checkbox">B
+    <input type="checkbox" v-model="checks" value="C" name="checkbox">C
+    <input type="checkbox" v-model="checks" value="D" name="checkbox">D
+    <p>{{checks}}</p>
+
+    <select name="color" id="" v-model="select">
+      <option value="红">红色</option>
+      <option value="绿">绿色</option>
+      <option value="蓝">蓝色</option>
+      <option value="白">白色</option>
+    </select>
+    <p>{{select}}</p>
+  </div>
+
+  <script src="./vue/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el:"#app",
+      data:{
+        message:"我是双向绑定的"
+      }
+    })
+
+    const ra = new Vue({
+      el:"#ra",
+      data:{
+        choose:"",
+        checks:["B"],
+        select:"红"
+      }
+    })
+  </script>
+</body>
+</html>
