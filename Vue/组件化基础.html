@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件化</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 使用组件 -->
+    <my_cpn></my_cpn>
+    <my_cpn></my_cpn>
+  </div>
+
+  <script src="./vue/vue.js"></script>
+  <script>
+    /**
+     * 组件：1.创建组件构造器2.注册组件3.使用组件
+     * 1. Vue.extend() 会返回一个组件构造器对象
+     *  - extend方法的参数为一个对象
+     *         {
+     *            template：`html代码`
+     *            //tempalte自定义组件模板
+     *          }
+     * 2.Vue.component("my-cpn",cpnC)
+     *  - component方法两个参数
+     *    第一个参数为组件的html标签名
+     *    第二个参数为1中组件构造器返回的对象
+     *  - 该注册方法是 全局注册！
+     */
+    //组件构造器
+    const cpnC = Vue.extend({
+      template:`
+        <div>
+        <h1>组件</h1>
+        <p>组件可以复用</p>
+        </div>`
+    })
+    //全局注册
+    // Vue.component("my_cpn",cpnC);
+    //全局注册即全局的Vue实例都可以用该组件
+
+    /*局部注册方法
+      - 在Vue实例中添加新属性components(注意有s)
+      如下所示
+    */ 
+    const app = new Vue({
+      el:"#app",
+      data:{},
+      //局部注册
+      components:{
+        my_cpn:cpnC
+        //键值为html标签名
+        //属性值为组件构造器返回的对象
+      }
+    })
+
+
+  </script>
+</body>
+</html>
