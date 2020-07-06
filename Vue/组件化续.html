@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件化（续集）</title>
+</head>
+<body>
+  <div id="app">
+    <cpn1></cpn1>
+    <cpn1></cpn1>
+  </div>
+
+  <script src="./vue/vue.js"></script>
+  <script>
+    /********************************************
+    * 1.组件注册语法糖
+    */
+    //全局注册语法糖
+    Vue.component("cpn1",{
+      template:`
+                  <div>
+                  <p>我是组件html代码,{{cmessage}}</p>
+                  <cpn3></cpn3>
+                  </div>
+                `,
+      //组件中的data函数
+      data(){
+        return {
+          cmessage:"我是组件中的data数据"
+        }
+      },
+      //组件中也可以注册组件
+      components:{
+        cpn3:{
+          template:`<p>我是组件cpn1的子组件cpn3</p>
+                `,
+        }
+      }
+    });
+    //局部组件语法糖
+    const app = new Vue({
+      el:"#app",
+      data:{},
+      //即注册局部组件时，把cpnC对象，换成含有template的字面量对象
+      components:{
+        cpn2:{
+          template:`<p>我是组件html代码</p>`
+        }
+      }
+    })
+    /*********************************************
+    * 2. 组件模板抽离
+    * 两种方法 - 
+      <script type="text/x-template" id="cpn1">html代码 <\/script>
+      <template id="cpn2">html代码</template>
+      用这两个标签任意一个即可，与template之间用id关联
+       - template:"#id" 即可
+    */
+    /*****************************************************
+    * 3.组件中的data
+        - 组件不可访问Vue实例的data，组件本身有data且是函数
+         为什么组件data是函数
+          - 若是对象，则每个复用的组件都指向同一个对象，修改其中一个
+             其他几个组件都跟着修改，而函数返回一个函数内部的对象，
+             这时每个复用的组件都有自己的data
+    */
+    /****************************************************
+    * 4. 父子组件
+       - 在构造组件对象里的component属性中也可以注册组件
+         此时注册的组件即为该构造组件的子组件，该构造组件为父组件
+       - 子组件只能在父组件的template里用
+    */
+     
+  </script>
+
+</body>
+</html>
