@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>父子通信</title>
+</head>
+<body>
+  <div id="app">
+    <cpn1></cpn1>
+    <cpn1></cpn1>
+  </div>
+<!-- 父子通信------------------------------------------------- -->
+<!-- 1.父传子 
+      数组写法 - props:["cmessage", ...]
+      对象写法 - props:String/Array/Object
+              或：
+              props:{
+                    cmessage:{
+                      type:String,
+                      default:"aaa",   default是默认值
+                      required：true    为true表示必须给cmessage传值
+                    }
+                如果type是Object和Array，defalut由工厂函数返回
+                   即 type:Object,
+                      default:obj(){return{...} }
+                }
+  -->
+
+<template id="cpn1">
+  <div>
+    <p>我是cpn1组件</p>
+    <cpn2  v-bind:cmessage="message"></cpn2>
+  </div>
+</template>
+<template id="cpn2">
+  <div>
+    <p>我是cpn2组件,是cpn1的子组件</p>
+    {{cmessage}}
+  </div>
+</template>
+
+  <script src="./vue/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:"#app",
+      data:{
+        message:["1","3","5","7","9"]
+      },
+      //创建注册组件
+      components:{
+        cpn1:{
+          template:"#cpn1",
+          //cpn1的data
+          data(){
+            return{
+              message:["我是cpn1的数据，"]
+            }
+          },
+          components:{//在cpn1中注册component
+            //创建cpn2,为cpn1的子组件
+            cpn2:{
+            template:"#cpn2",
+            props:{
+            //cmessage为父组件传来的
+            cmessage:Array
+                  }
+            }
+          }
+        }
+      },
+    })
+  </script>
+</body>
+</html>
