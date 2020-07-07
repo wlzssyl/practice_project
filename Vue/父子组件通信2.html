@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>父子通信，子传父</title>
+</head>
+<body>
+  <!-- 通过子组件自定义的to_app事件将子组件数据传到父组件 -->
+  <div id="app">
+    <!-- 注意接收自定义事件应该写在cpn1标签里 -->
+    <cpn1  @to_app="data_cpn1"></cpn1>
+    <p>{{cdata}}</p>
+  </div>
+
+  <template id="cpn1">
+    <div>
+      <h3>我是cpn1组件</h3>
+      <button v-for="(value,index) in items"
+        @click="cpn_click(value)">
+        {{value.name}}
+      </button>
+    </div>
+  </template>
+
+  <script src="./vue/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:"#app",
+      data:{
+        message:{
+          name:"孙悟空",
+          age:18,
+          height:180
+        },
+        cdata:""
+      },
+      components:{
+        //注册组件cpn1（是Vue实例的子组件）
+        cpn1:{
+          template:"#cpn1",
+          data(){
+            return{
+              items:[
+                {id:001,name:"家电"},
+                {id:002,name:"日化"},
+                {id:003,name:"视频"},
+                {id:004,name:"数码"}
+              ]
+            }
+          },
+          //子传父，发送自定义事件
+          methods:{
+            cpn_click(value){
+              this.$emit('to_app',value);
+            }
+          }
+        }
+      },
+      //vue实例的methods
+      methods:{
+        data_cpn1(value){
+          this.cdata = value.name;
+        }
+      }
+    })
+    /*******************************************
+    *总结子传父
+      - 方法：1.在子组件中向父组件发送自定义事件
+              this.$emit("自定义事件名"，value)
+              第一个参数是自定义事件的字面量名字，第二个参数是希望传给
+              父组件的数据
+              2.在父组件中监听该事件，并且获取它
+               v-on:"自定义事件名" = "父组件函数"
+              
+    */
+  </script>
+</body>
+</html>
