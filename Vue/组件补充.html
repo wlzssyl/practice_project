@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件注意点补充</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-model双向绑定原理，v-bind： + v-on: -->
+    <input type="text" @input="inputing" :value="text">
+    {{text}}
+  </div>
+
+  <script src="./vue/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:"#app",
+      data:{
+        text:"0"
+      },
+      methods:{
+        inputing(event){
+          console.log(event);
+          this.text = event.target.value;//这个是输入input的内容
+        }
+      }
+    })
+    /**************************************
+    *1. props中使用驼峰命名的注意点
+         <cpn v-bind:my-name="..."></cpn>
+         props:{
+           myName:"1"
+         }
+         即要把大写变小写且加个-
+    */
+    /************************************
+    *2. props中v-model双向绑定时，不能用props中的数据
+        必须用data()中的数据
+         - 可以将props的数据放入data()中
+          props:{name:"1"}
+          data(){return{dname:this.name}}
+    */
+    /************************************
+    *3. v-model双向绑定原理
+         - 即v-bind： + v-on：
+    */
+  </script>
+</body>
+</html>
