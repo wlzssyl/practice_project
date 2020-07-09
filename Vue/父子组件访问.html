@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>父子组件访问</title>
+</head>
+<body>
+  <div id="app">
+    <button @click="fun">父组件按钮</button>
+    <cpn1></cpn1> 
+    <cpn2 ref="id"></cpn2>  
+  </div>
+
+  <template id="cpn1">
+    <div>
+      <p>Vue实例的子组件cpn</p>
+      <button @click="cfun">cpn按钮</button>
+    </div>
+  </template>
+
+  <script src="./vue/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:"#app",
+      data:{name:"父组件name"},
+      methods:{
+        fun(){
+          // .$children这是所有子组件组成的数组
+          console.log(this.$children);
+          // .$refs是ref匹配的子组件对象
+          console.log(this.$refs.id);         
+        }
+      },
+      components:{
+        cpn1:{
+          template:"#cpn1",
+          data(){return{cname:"子组件name",cage:18}},
+          methods:{
+            cfun(){
+              // .$parent这是父组件对象
+              console.log(this.$parent);
+              // .$root这是访问根组件对象
+              console.log(this.$root); 
+            }
+          }
+        },
+        cpn2:{
+          template:`<p>Vue实例的的第二个子组件cpn2</p>`
+        }
+      }
+    });
+    /*******************************************************
+    * - .$chideren
+          是一个数组，数组元素是当前父组件所包含的所有子组件对象
+      - .$refs
+          默认是空对象
+          需要与<cpn ref="aaa">配合使用，
+          即 this.$refs.aaa就是该子组件对象
+      - .$parent
+          能够获得父组件对象
+      - .$root
+          能够获得根组件对象，即Vue实例
+    */
+  </script>
+</body>
+</html>
