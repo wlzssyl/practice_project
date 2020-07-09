@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件插槽</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 1.在cpn标签中的内容会替换slot插槽 -->
+    <cpn><button>我是直接写的插槽</button></cpn>
+    <!-- 3.具名插槽， 可以选择特定的name值的slot -->
+    <cpn><span slot="a2">我是a2插槽</span></cpn>
+    <!-- 4.作用域插槽 v-slot="自定义名字"
+            父组件获取子组件数据 -->
+    <cpn>
+      <template v-slot="slot">
+        <p>{{slot.data.join(" - ")}}</p>
+      </template>
+    </cpn>
+  </div>
+
+  
+  <template id="cpn">
+    <div>
+      <h2>cpn组件</h2>
+      <!-- 2.slot插槽标签也可以写内容，其内容作为插槽默认内容，会被1方法覆盖 -->
+      <!-- <slot><button>我是默认插槽</button></slot> -->
+      <!-- 3.具名插槽
+              name="aaa"
+              <cpn><button slot="aaa"></button></cpn> -->
+      <slot name="a1"><button>我是默认插槽a1</button></slot>
+      <slot name="a2"><button>我是默认插槽a2</button></slot>
+      <!-- 4.作用域插槽 
+                :自定义名字="子组件内部数据"-->
+      <slot :data="cmessage">
+        <p v-for="value in cmessage">{{value}}</p>
+      </slot>
+    </div>
+  </template>
+
+  <script src="./vue/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:"#app",
+      data:{message:1},
+      components:{
+        cpn:{
+          template:"#cpn",
+          data(){
+            return{
+              cmessage:["孙悟空","沙和尚","猪八戒"]
+            }
+          }
+        }
+      }
+    });
+    /*****************************************************
+    * 作用域插槽的作用：
+          内容数据由子组件提供，父组件可以替换其标签
+    */
+  </script>
+</body>
+</html>
