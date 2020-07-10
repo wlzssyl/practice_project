@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6的模块化</title>
+</head>
+<body>
+    <!-- es6模块化需要用type="module"后，开启模块化 -->
+  <script src="..." type="module"></script>
+<!-- 导出
+    1. export{name,fun ...} 
+      - export{}后跟对象，里面可以是想导出的对象，变量，函数等 
+    2. export let name = "孙悟空" 
+      - export直接声明后导出  
+    3. export default address（address也可以是任意变量或对象）
+      - default导出的其中address不用{}
+      - 只能有一个default导出
+      - 对应import导入时名字可以任意命名且不用{}
+         例：import add(任意) from "... .js"
+      -->
+<!-- 导入 
+      1. import {name，fun ...} from "... .js"
+        - 直接写其他模块导出的变量名，对象名
+        - "其他模块路径"，引号里面是其他模块路径
+      2. default导入不用{}
+        - import 任意名字 from "... .js"
+      3. 统一全部导入
+        - import * as all(all是自定义名字) from ".. .js"
+        - 即将所用变量对象全部导入，使用自定义名字（all）来使用导入的数据
+           例：all.name -->
+</body>
+</html>
