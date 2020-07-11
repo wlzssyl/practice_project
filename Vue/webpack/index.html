@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>入口html</title>
+</head>
+<body>
+  <!-- 安装webpack后直接打包，安装：npm install webpack@3.6.0 -g 
+       1. 打包：webpack ./src/main.js  ./dist/bundle.js
+                      入口文件路径      生成的打包js文件
+        之后就可以直接引用打包后的js文件即可 -->
+  <script src="./dist/bundle.js"></script>
+  <!-- 2.第二种打包方法，相对上面第一种不用再写两个路径
+         - 创建一个配置文件webpack.config.js
+         - module.export ={
+            入口  entry:" ", 
+            出口  output:{
+                      path: " "   //这里要绝对路径
+                      filename:"文件名" //即bundle.js
+            }
+         } -->
+</body>
+</html>
