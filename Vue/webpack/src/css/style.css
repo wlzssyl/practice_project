@@ -1,0 +1,8 @@
+body{
+  background-color: #bfa;
+}
+/* css文件打包
+    - 将所要依赖的css文件导入到入口js文件中，（require("./...css")）
+    - 需要下载css-load : npm install --save-dev css-loader
+            以及style-loader：npm install --save-dev style-loader 
+    - 安装后在package.json中配置，可从webpack文档中获得配置代码   */
