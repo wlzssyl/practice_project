@@ -60,73 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_a_js__ = __webpack_require__(1);
-
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_a_js__["c" /* name */],__WEBPACK_IMPORTED_MODULE_0__js_a_js__["a" /* age */],__WEBPACK_IMPORTED_MODULE_0__js_a_js__["b" /* gender */]);
-
-// 对css文件的依赖，可以使用common.js导入方法
-__webpack_require__(3);
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return name; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return age; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return gender; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__b_js__ = __webpack_require__(2);
-let name = "孙悟空";
-let age = 18;
-let gender = "男";
-
-console.log(Object(__WEBPACK_IMPORTED_MODULE_0__b_js__["a" /* add */])(1,10));
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = add;
-function add(num1,num2){
-  return num1+num2;
-}
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var api = __webpack_require__(4);
-            var content = __webpack_require__(5);
-
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.i, content, '']];
-            }
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = api(content, options);
-
-
-
-module.exports = content.locals || {};
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -401,20 +339,7 @@ module.exports = function (list, options) {
 };
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(6);
-exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.i, "body{\r\n  background-color: #bfa;\r\n}", ""]);
-// Exports
-module.exports = exports;
-
-
-/***/ }),
-/* 6 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -512,6 +437,121 @@ function toComment(sourceMap) {
   var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
   return "/*# ".concat(data, " */");
 }
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_a_js__ = __webpack_require__(3);
+
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_a_js__["c" /* name */],__WEBPACK_IMPORTED_MODULE_0__js_a_js__["a" /* age */],__WEBPACK_IMPORTED_MODULE_0__js_a_js__["b" /* gender */]);
+
+// 对css文件的依赖，可以使用common.js导入方法
+__webpack_require__(5);
+
+// 对less文件的依赖
+__webpack_require__(7);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return name; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return age; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return gender; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__b_js__ = __webpack_require__(4);
+let name = "孙悟空";
+let age = 18;
+let gender = "男";
+
+console.log(Object(__WEBPACK_IMPORTED_MODULE_0__b_js__["a" /* add */])(1,10));
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = add;
+function add(num1,num2){
+  return num1+num2;
+}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(0);
+            var content = __webpack_require__(6);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(1);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "body{\r\n  background-color: #bfa;\r\n}\r\n/* css文件打包\r\n    - 将所要依赖的css文件导入到入口js文件中，（require(\"./...css\")）\r\n    - 需要下载css-load : npm install --save-dev css-loader\r\n            以及style-loader：npm install --save-dev style-loader \r\n    - 安装后在package.json中配置，可从webpack文档中获得配置代码   */", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(0);
+            var content = __webpack_require__(8);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(1);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "p {\n  font-size: 18px;\n  color: #fff;\n}\n", ""]);
+// Exports
+module.exports = exports;
+
 
 /***/ })
 /******/ ]);
