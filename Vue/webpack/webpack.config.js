@@ -51,5 +51,11 @@ module.exports = {
         ]
       }
     ]
+  },
+  //配置vue
+  resolve:{
+    alias:{  //alias别名
+      'vue$':'vue/dist/vue.esm.js'
+    }
   }
 };
