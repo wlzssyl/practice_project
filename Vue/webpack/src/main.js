@@ -12,21 +12,14 @@ require('./css/font.less');
 //配置vue， 先npm install vue --save 再去配置
 import Vue from "vue";
 
+//引入App组件
+import App from "./vue/App.vue";
+
 new Vue({
   el:"#app",
   template:`<App></App>`,
-  data:{
-    message:"vue组件"
-  },
   components:{
-    App:{
-      template:`<div>
-                 <p>vue组件</p>
-                 <p>{{cmessage}}</p>
-                </div>`,
-      data(){
-        return {cmessage:"组件数据"}
-      }
-    }
+    App
   }
 });
+

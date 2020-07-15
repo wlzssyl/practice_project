@@ -1,13 +1,16 @@
 // node中的path包，（用来获取绝对路径）
 // 需要npm init
 const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   entry:"./src/main.js",
   output:{
     path:path.resolve(__dirname,"dist"),  //__dirname就是package所在绝对路径,resolve将两者拼接成所需路径 
     filename:"bundle.js",
-    publicPath:"dist/" //publicPath时设置file-loader的输出文件
+    //publicPath:"dist/" //publicPath时设置file-loader的输出文件
   },
   //在webpack文档中可复制下面的css-loader配置代码
   module: {
@@ -49,13 +52,35 @@ module.exports = {
             }
           }
         ]
+      },
+      //配置vue-loader
+      { test: /\.vue$/, 
+        use: [
+          { loader: 'vue-loader' }
+        ] 
       }
     ]
   },
-  //配置vue
+  //配置vue，主要是为了配置runtime-compiler
   resolve:{
     alias:{  //alias别名
-      'vue$':'vue/dist/vue.esm.js'
+      'vue$':'vue/dist/vue.esm.js'  //这个文件里是runtime-compiler
     }
-  }
+  },
+  //插件plugins
+  plugins:[
+    //自带插件banner ，增加声明
+    new webpack.BannerPlugin("版权归****所有。"),
+    //html打包插件
+    new HtmlWebpackPlugin({
+      template:"index.html"
+    }),
+    //压缩js代码插件
+    //new UglifyjsWebpackPlugin()
+  ],
+  //配置服务器  安装npm install webpack-dev-server --save-dev
+  // devServer:{
+  //   contentBase:'./dist',  //服务的文件夹
+  //   inline:true  //是否实时
+  // }
 };
