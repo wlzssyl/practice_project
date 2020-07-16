@@ -79,8 +79,8 @@ module.exports = {
     //new UglifyjsWebpackPlugin()
   ],
   //配置服务器  安装npm install webpack-dev-server --save-dev
-  // devServer:{
-  //   contentBase:'./dist',  //服务的文件夹
-  //   inline:true  //是否实时
-  // }
+  devServer:{
+    contentBase:'./dist',  //服务的文件夹
+    inline:true  //是否实时
+  }
 };
