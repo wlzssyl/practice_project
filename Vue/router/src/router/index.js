@@ -23,5 +23,7 @@ export default new Router({
       path:'/about',
       component:About
     }
-  ]
+  ],
+  //去掉url中的#,即将模式改为history，默认为hash哈希
+  mode:'history'
 })

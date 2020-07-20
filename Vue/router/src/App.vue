@@ -7,7 +7,13 @@
     <!-- router-view控制路由组件渲染的位置 -->
     <router-view></router-view>
   </div>
-  <!-- router-link的一些属性补充 -->
+  <!-- router-link的一些属性补充
+      1. tag="button" , 可以将其渲染成指定元素（例子中为按钮），默认为a
+                      同时会使元素在被点击时添加新类名：vouter-link-active
+      2. replace    将返回功能禁用，其实是跟.replaceState方法相同。
+                    这里与.pushState做好区别，push()和back()是入栈和出栈
+      3. active-class 可以修改tag带来的类名
+       -->
 </template>
 
 <script>
