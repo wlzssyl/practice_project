@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 // 从components文件夹获取组件
 import Home from '../components/Home.vue'
 import About from '../components/About'
+import User from '../components/User.vue'
 
 Vue.use(Router) //导入的Router要注册一下
 
@@ -22,6 +23,10 @@ export default new Router({
     {
       path:'/about',
       component:About
+    },
+    { //
+      path:'/user/:userId',
+      component:User
     }
   ],
   //去掉url中的#,即将模式改为history，默认为hash哈希

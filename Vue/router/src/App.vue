@@ -2,8 +2,11 @@
   <div id="app">
     <h1>hahah</h1>
     <!-- router-link即链接路由组件 -->
-    <router-link to="/Home">首页</router-link>
+    <router-link to="/Home" tag="button">首页</router-link>
     <router-link to="/about">关于</router-link>
+    <!-- 此处为动态路由，即App处动态绑定uid的值，然后传给路由，路由再根据路由表
+         传到User组件，由user组件把获得的uid显示出来（父组件信息->子组件） -->
+    <router-link v-bind:to="'/user/'+uid">用户</router-link>
     <!-- router-view控制路由组件渲染的位置 -->
     <router-view></router-view>
   </div>
@@ -18,7 +21,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+    return {
+      uid:1001
+    }
+  }
 }
 </script>
 
