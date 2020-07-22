@@ -16,7 +16,7 @@ import Profile from '../components/profile'
 
 Vue.use(Router) //导入的Router要注册一下
 
-export default new Router({
+const router = new Router({
   //routes是路由表
   routes: [
     //路由默认值
@@ -27,6 +27,7 @@ export default new Router({
     {
       path:'/home', //url后缀为home时，路由到Home组件
       component:Home,
+      meta:{title:'主页'},//元数据，注意是个对象
       //嵌套组件,这里配置完后在相应父组件里使用router-link即可
       children:[
         {
@@ -45,17 +46,33 @@ export default new Router({
     },
     {
       path:'/about',
-      component:About
+      component:About,
+      meta:{title:'关于'}
     },
     { //:即动态绑定，并传给User组件
       path:'/user/:userId',
-      component:User
+      component:User,
+      meta:{title:'用户'}
     },
     {
       path:'/profile',
-      component:Profile
+      component:Profile,
+      meta:{title:'档案'}
     }
   ],
   //去掉url中的#,即将模式改为history，默认为hash哈希
-  mode:'history'
+  mode:'history',
+  linkActiveClass:'active'
 })
+
+//路由对象的.beforeEach()方法，需要传入一个箭头函数
+//箭头函数三个参数to是来时的历史Route对象，from是即将跳转的Route对象
+router.beforeEach(
+  (to,from,next) => {
+    //console.log(to)
+    document.title = to.matched[0].meta.title
+    next() //next()不能少，否则无法继续跳转路由
+  }
+)
+
+export default router;
