@@ -6,7 +6,7 @@
 
    +  学习HTML/CSS
 
-   +  学习怎么使用git (进行中) 
+   +  学习怎么使用git 
 
    +  学习JavaScript (进行中)
 
