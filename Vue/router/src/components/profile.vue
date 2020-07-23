@@ -10,7 +10,13 @@
 
 <script>
 export default {
-  name:'Profile'
+  name:'Profile', //keep-alive的属性需要用到
+  created(){
+    console.log('Profile created')
+  },
+  destroyed(){
+    console.log('Profile destroyed')
+  }
 }
 </script>
 

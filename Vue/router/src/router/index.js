@@ -30,10 +30,10 @@ const router = new Router({
       meta:{title:'主页'},//元数据，注意是个对象
       //嵌套组件,这里配置完后在相应父组件里使用router-link即可
       children:[
-        {
-          path:'',
-          redirect:'message'
-        },
+        // {
+        //   path:'',
+        //   redirect:'message'
+        // },
         {
           path:'news',//这里路径不用加/
           component:HomeNews
@@ -65,7 +65,7 @@ const router = new Router({
   linkActiveClass:'active'
 })
 
-//路由对象的.beforeEach()方法，需要传入一个箭头函数
+//路由对象的.beforeEach()前置守卫，需要传入一个箭头函数
 //箭头函数三个参数to是来时的历史Route对象，from是即将跳转的Route对象
 router.beforeEach(
   (to,from,next) => {
@@ -74,5 +74,6 @@ router.beforeEach(
     next() //next()不能少，否则无法继续跳转路由
   }
 )
+//afterEach后置钩子不用next()
 
 export default router;

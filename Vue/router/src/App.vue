@@ -10,7 +10,11 @@
     <!-- to=后面可以动态绑定对象，传递query对象 -->
     <router-link v-bind:to="{path:'/profile',query:{name:'孙悟空',age:18}}" tag='button'>个人信息</router-link>
     <!-- router-view控制路由组件渲染的位置 -->
-    <router-view></router-view>
+     <!-- <router-view></router-view> -->
+    <!-- keep-alive标签内部的组件不会被销毁，保留以避免重新渲染 -->
+    <keep-alive exclude="Profile">
+       <router-view></router-view>
+    </keep-alive>
   </div>
   <!-- router-link的一些属性补充
       1. tag="button" , 可以将其渲染成指定元素（例子中为按钮），默认为a
