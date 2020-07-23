@@ -1,0 +1,33 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1595498644244'); /* IE9 */
+  src: url('iconfont.eot?t=1595498644244#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAQcAAsAAAAACKwAAAPQAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDKgqETIQLATYCJAMUCwwABCAFhG0HTxuWB1GUDkqG7EdC5qaeVgklGiZTlEJ/B8Pi7aGUBN/v99tz5X0xvEESjdp8OolEFE2FBCkRKinQPUQdyssmzVZLVekJhZlLDkrTycLJVDiAeMr9X60O+GpNbXB8hMN17yJNjCS4ICkAVKAyERJVhIpQQKCS1tXIsqyxvuAh8wnNKB7gGSb44HECXXOGwY6KKkgQpHDGBeLOZmFAUEmn9FBCW9m0LC3iUdVO9+ku4CH++PgSF0EkNXOmHl8UNoKc1/RPp3Lv/5wOR7CeBdIqMtYBhbhptZ3B0+A6XNeIF9kBtF1LYq3wgfdT/5hwUngrqM3/8AhJVoiGg/pE3tMUj0zgYwTvBzAS7ycxMu+nhB8KqjS6iwGe8Aeq+TW7F1maJg0WqaRSbZB302hV7OydO3t37ZLsuDDpPLv1bO+5Ocn9HKUg6Um7xXJKDCTjZJiUko0Rdzx7NuLpU/L5c+rFC+AWOUhotiNXbNu1Skuu3NmPXLp992oDvWbPQPpJWpJeYWBGInoWohBR2INevuGEbtctyY1s9Q1Xanc+nf18ArtjTn9m2yHgt/Fpgfz68z74pCOVW4Ff7y6JYs4eDJ80oGG5tqdH9VDWR/ZQtTE+Kb4fCHnuozaB+AuxcRc6P8hVcmdkD5+TuzDiR85Z04Qv5SEYIPChR0W/fomOigM3KMpj0lbhd+/iSFaZi2L+hWj1EaQqTq98KbxLflkJBVewfVlPK7P2UQuBIQtuJT79pj7kS25e6MIjOyZpB618VWqqSg5YMyj5Y2VUZbv0TAqzY7m5hilzlOqJ2cMmXZkQYtf/0Of4+9hDJqR8rK8HrQD+4ZNyzB6+Jw8NH1+eTX+Iv7H5fdkERcb/oF4BL9mTlqLjPxEYL/hWBYbg6xeMrCimyNHXopf6fN1ebRTiJHRdI197lAnv11FMj/YT2iWBBEnLLGRt8/hCXoeqZwMabbvQtaZ4dc8kHi5KB6umAYQxByAZeoZszD18Ib+DasZ3aIwFDl0nodmyZzFs4nweMgg2Eg1thI31uLkYkTjJrIOWJifDF0UxlYK8YPMQsVEx1UgxdEN+jRlCsyUOIY7geI+LKILToNPpIby8xw5ZFGVFyJsWHc21vVIU63EBsUM8iIFAjQgN2hBsWB5uXFgbEdfevw5k0cSJwfeUNVgpEE9g65wQK0rMCHwxco8qe5begmYWcRCE41EcnocLoQgtkNMNehC87YPsIBYSxTrD75UmmqpxY1HU/grXe9wGXU7/GilylKjR6D347YYjKKC4xACOabUxbn/BCn1NAUvwNLVBAAA=') format('woff2'),
+  url('iconfont.woff?t=1595498644244') format('woff'),
+  url('iconfont.ttf?t=1595498644244') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1595498644244#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon-test25:before {
+  content: "\e63b";
+}
+
+.icon-faxian:before {
+  content: "\e8af";
+}
+
+.icon-shequ:before {
+  content: "\e8b8";
+}
+
+.icon-shouye:before {
+  content: "\e8b9";
+}
+
