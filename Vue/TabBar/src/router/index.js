@@ -6,12 +6,12 @@ const Category = ()=> import('../views/category/Category')
 const Cart = ()=> import('../views/cart/Cart')
 const Profile = ()=>import ('../views/profile/Profile')
 
-/**解决重复路由的报错，即重复点*************************
+/**解决重复路由的报错，即重复点*************************/
 const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
-********************************************************/
+/********************************************************/
 
 Vue.use(Router)
 
