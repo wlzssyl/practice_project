@@ -1,13 +1,29 @@
 <template>
-  <div class="tabbar-item">
-    <slot name="item-icon"></slot>
-    <slot name="item-text"></slot>
+  <div class="tabbar-item" @click="tabbarClick">
+    <div v-if="!isActive"><slot name="item-icon"></slot></div>
+    <div class="active"><slot name="item-icon-active"></slot></div>
+    <div class="active"><slot name="item-text"></slot></div>   
   </div>
 </template>
 
 <script>
 export default {
-  name:'TabbarItem'
+  name:'TabbarItem',
+  data(){
+    return{
+      isActive:'true'
+    }
+  },
+  props:{
+    path:{
+      type:String
+    }
+  },
+  methods:{
+    tabbarClick(){
+      this.$router.push(this.path)
+    }
+  }
 }
 </script>
 
@@ -22,5 +38,8 @@ export default {
   } 
   .tabbar-item div{
     font-size: 12px;
+  }
+  .active,.tabbar i{
+    color: rgb(251, 114, 153);
   }
 </style>
