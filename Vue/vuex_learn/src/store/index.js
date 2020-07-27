@@ -22,7 +22,10 @@ const store = new Vuex.Store(
       decrement(){
         this.state.count--;
       },
-      
+      additionCount(state,num){
+        // state.count += num;
+        state.count += num.num;
+      }
     },
     actions:{},
     getters:{//类比计算属性
