@@ -7,6 +7,10 @@
     <button @click="additionCount(3)">+{{num}}</button>
     <p>{{$store.getters.someStudents(20)}}</p>
     <hello-vuex></hello-vuex>
+
+    <p style="'color=red'">dispatch->actions->commit->mutations</p>
+    <button @click="addGender(1)">actions</button>
+    <p>{{$store.state.teacher}}</p>
   </div>
 </template>
 
@@ -38,9 +42,16 @@ export default {
           type:'additionCount',
           num
         })
-      
-
-      
+    },
+    addGender(gender){
+      let sex;
+      if(gender == 1){
+        sex = '男';
+      }else{
+        sex = '女';
+      }
+      this.$store.dispatch('aUpdata',sex)
+      .then((res) => {console.log(res);})
     }
   }
 }
