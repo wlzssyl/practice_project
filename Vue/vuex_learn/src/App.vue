@@ -11,6 +11,9 @@
     <p style="'color=red'">dispatch->actions->commit->mutations</p>
     <button @click="addGender(1)">actions</button>
     <p>{{$store.state.teacher}}</p>
+
+    <h3>模块a中的message</h3>
+    <p>{{$store.state.a.message}}</p>
   </div>
 </template>
 
