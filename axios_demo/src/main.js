@@ -15,6 +15,8 @@ new Vue({
 
 /*******************************************
  * axios网络请求
+ * 安装 npm install axios --save
+ * 导入 import axios form 'asios'
  */
 //1.axios(config)简单实现
 axios({
@@ -45,3 +47,37 @@ axios.all([
 //3.全局配置
 //axios.default.baseURL = '......'
 //axios.default.timeout = ...
+
+/*********************************************************
+ * 4.axios实例
+ *  - 上面的axios请求都是全局请求
+ *  - 创建axios实例，可以从不同服务器发送请求
+ */
+// const instance = axios.create({
+//   baseURL:'http://152.136.185.210:8000/api/n3',
+//   timeout:5000
+// })
+// instance({
+//   url:'/recommend'
+// }).then(res => {
+//   console.log(res);
+// }).catch(err => {
+//   console.log(err);
+// });
+ //实例后可以再写一个与上面不同地址或者其他配置不同的axios请求
+// instance({
+//   url:'home/multidata'
+// }).then(res =>{
+//   console.log(res);
+// })
+/****************************************
+ * 使用网络封装
+ */
+import {request} from './network/request'
+request(
+  {url:'./recommend'}
+).then(res => {
+  console.log(res)
+}).catch(err => {
+  console.log(err)
+})
