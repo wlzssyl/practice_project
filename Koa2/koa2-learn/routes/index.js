@@ -1,6 +1,8 @@
 const router = require('koa-router')()
 
 router.get('/', async (ctx, next) => {
+  //主页面接口设置cookies
+  ctx.cookies.set('pvid', Math.random())
   await ctx.render('index', {
     title: 'Hello Koa 2!'
   })
@@ -12,7 +14,9 @@ router.get('/string', async (ctx, next) => {
 
 router.get('/json', async (ctx, next) => {
   ctx.body = {
-    title: 'koa2 json'
+    title: 'koa2 json',
+    //在json接口读取cookies
+    cookies: ctx.cookies.get('pvid')
   }
 })
 
@@ -40,4 +44,4 @@ router.get('/testAsync', async (ctx) => {
 })
 
 
-module.exports = router
+module.exports = router  //配置完成后导出该路由实例
