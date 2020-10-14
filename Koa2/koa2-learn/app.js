@@ -8,6 +8,9 @@ const logger = require('koa-logger')
 
 //中间件学习示例pv
 const pv = require('./koa_middleware/koa_pv')
+const m1 = require('./koa_middleware/m1')
+const m2 = require('./koa_middleware/m2')
+const m3 = require('./koa_middleware/m3')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -16,11 +19,14 @@ const users = require('./routes/users')
 onerror(app)
 
 // middlewares
-app.use(pv()) //使用的顺序也有讲究
-
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
+app.use(pv()) //使用的顺序也有讲究
+app.use(m1())
+app.use(m2())
+app.use(m3())
+
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
