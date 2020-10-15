@@ -12,6 +12,8 @@ const m1 = require('./koa_middleware/m1')
 const m2 = require('./koa_middleware/m2')
 const m3 = require('./koa_middleware/m3')
 /*******************************************/
+const mongoose = require('mongoose')
+const dbConfig = require('./dbs/config')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -47,6 +49,9 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+mongoose.connect(dbConfig.dbs, {
+  useNewUrlParser: true
+})    //可以这样写死，详情了解可看官网文档
 
 // error-handling
 app.on('error', (err, ctx) => {
