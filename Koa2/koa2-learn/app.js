@@ -11,9 +11,10 @@ const pv = require('./koa_middleware/koa_pv')
 const m1 = require('./koa_middleware/m1')
 const m2 = require('./koa_middleware/m2')
 const m3 = require('./koa_middleware/m3')
-/*******************************************/
+/**mongoose*************************************/
 const mongoose = require('mongoose')
 const dbConfig = require('./dbs/config')
+/****************************************** */
 
 const index = require('./routes/index')
 const users = require('./routes/users')
