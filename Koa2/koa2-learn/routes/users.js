@@ -42,6 +42,17 @@ router.post('/getPerson', async function(ctx) {
     results
   }
 })
+//更新数据（改）
+router.post('/updatePerson', async function(ctx) {
+  const result = await Person.where({
+    name: ctx.request.body.name
+  }).update({
+    age: ctx.request.body.age
+  })
+  ctx.body = {
+    code:0
+  }
+})
 
 module.exports = router  //配置完成后导出该路由实例
 
