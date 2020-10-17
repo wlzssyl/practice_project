@@ -53,6 +53,15 @@ router.post('/updatePerson', async function(ctx) {
     code:0
   }
 })
+//删除数据
+router.post('/removePerson', async function(ctx) {
+  const result = await Person.where({
+    name: ctx.request.body.name
+  }).remove()
+  ctx.body = {
+    code:0
+  }
+})
 
 module.exports = router  //配置完成后导出该路由实例
 
