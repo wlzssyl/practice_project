@@ -68,5 +68,7 @@ module.exports = router  //配置完成后导出该路由实例
 /***
  * 数据库增删改查操作
  *  - 增加数据： curl -d "name=sun&age=18" http://localhost:3000/users/addPerson
- *  - 读取数据： curl -d "name=sun&age=18" http://localhost:3000/users/getPerson
+ *  - 读取数据： curl -d "name=sun" http://localhost:3000/users/getPerson
+    - 更新数据： curl -d "name=sun&age=18" http://localhost:3000/users/updatePerson
+    - 删除数据： curl -d "name=sun" http://localhost:3000/users/removePerson
  */
