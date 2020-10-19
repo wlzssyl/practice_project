@@ -14,13 +14,21 @@ const m3 = require('./koa_middleware/m3')
 /**mongoose*************************************/
 const mongoose = require('mongoose')
 const dbConfig = require('./dbs/config')
-/****************************************** */
+/***redis*************************************** */
+const Redis = require('koa-redis')
+const session = require('koa-generic-session')
+/******************************************* */
 
 const index = require('./routes/index')
 const users = require('./routes/users')
 
 // error handler
 onerror(app)
+  //redis配置
+app.keys = ['keys', 'keyskeys']
+app.use(session({
+  store: new Redis()
+}))
 
 // middlewares
 app.use(bodyparser({
