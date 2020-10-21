@@ -2,6 +2,9 @@ const router = require('koa-router')()
 const person = require('../dbs/models/person')
 const Person = require('../dbs/models/person')
 
+const Redis = require('koa-redis')
+const Store = new Redis().client
+
 router.prefix('/users')  //即路径必须有/users前缀
 
 router.get('/', function (ctx, next) {
@@ -14,7 +17,7 @@ router.get('/bar', function (ctx, next) {
 
 //配置数据库接口
 //加数据
-router.post('/addPerson', async function(ctx) {
+router.post('/addPerson', async function (ctx) {
   const person = new Person({
     name: ctx.request.body.name,
     age: ctx.request.body.age
@@ -27,39 +30,47 @@ router.post('/addPerson', async function(ctx) {
     code = -1
   }
   ctx.body = {
-    code:code
+    code: code
   }
 })
 //读数据
-router.post('/getPerson', async function(ctx) {
+router.post('/getPerson', async function (ctx) {
   //.findOne方法只招第一个符合条件的
-  const result = await Person.findOne({name: ctx.request.body.name})
+  const result = await Person.findOne({ name: ctx.request.body.name })
   //.find方法找所有符合条件的，并封装到数组中
-  const results = await Person.find({name: ctx.request.body.name})
+  const results = await Person.find({ name: ctx.request.body.name })
   ctx.body = {
-    code:0,
+    code: 0,
     result,
     results
   }
 })
 //更新数据（改）
-router.post('/updatePerson', async function(ctx) {
+router.post('/updatePerson', async function (ctx) {
   const result = await Person.where({
     name: ctx.request.body.name
   }).update({
     age: ctx.request.body.age
   })
   ctx.body = {
-    code:0
+    code: 0
   }
 })
 //删除数据
-router.post('/removePerson', async function(ctx) {
+router.post('/removePerson', async function (ctx) {
   const result = await Person.where({
     name: ctx.request.body.name
   }).remove()
   ctx.body = {
-    code:0
+    code: 0
+  }
+})
+
+//通过接口操作redis
+router.get('/fix', async function (ctx) {
+  const st = await Store.hset('fix', 'name', Math.random())
+  ctx.body = {
+    code: 0
   }
 })
 
