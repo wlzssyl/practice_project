@@ -79,6 +79,24 @@
 + 因为 JWT 是自包含的（内部包含了一些会话信息），因此减少了需要查询数据库的需要
 + 因为 JWT 并不使用 Cookie 的，所以你可以使用任何域名提供你的 API 服务而不需要担心跨域资源共享问题（CORS）
 + 因为用户的状态不再存储在服务端的内存中，所以这是一种无状态的认证机制
+### JMT的使用方式
++ 客户端收到服务器返回的 JWT，可以储存在 Cookie 里面，也可以储存在 localStorage。
++ 方式一
+  - 当用户希望访问一个受保护的路由或者资源的时候，可以把它放在 Cookie 里面自动发送，但是这样不能跨域，所以更好的做法是放在 HTTP 请求头信息的 Authorization 字段里，使用 Bearer 模式添加 JWT。
+  - GET /calendar/v1/events
+  - Host: http://api.example.com
+  - Authorization: Bearer <token>
+  - 用户的状态不会存储在服务端的内存中，这是一种无状态的认证机制
+  - 服务端的保护路由将会检查请求头 Authorization 中的 JWT 信息，如果合法，则允许用户的行为。
+  - 由于 JWT 是自包含的，因此减少了需要查询数据库的需要
+  - JWT 的这些特性使得我们可以完全依赖其无状态的特性提供数据 API 服务，甚至是创建一个下载流服务。
+  - 因为 JWT 并不使用 Cookie ，所以你可以使用任何域名提供你的 API 服务而不需要担心跨域资源共享问题（CORS）
++ 方式二
+  - 跨域的时候，可以把 JWT 放在 POST 请求的数据体里。
++ 方式三
+  - 通过 URL 传输
+  - http://www.example.com/user?token=xxx
+### 
 
 
 
