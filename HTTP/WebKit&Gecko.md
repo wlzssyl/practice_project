@@ -91,3 +91,12 @@ HTML5 规范详细地描述了解析算法。此算法由两个阶段组成：�
   - 我们不能直接添加的元素。这很可能是网页作者忘记添加了其中的一些标记（或者其中的标记是可选的）。这些标签可能包括：HTML HEAD BODY TBODY TR TD LI（还有遗漏的吗？）。
   - 向 inline 元素内添加 block 元素。关闭所有 inline 元素，直到出现下一个较高级的 block 元素。
   - 如果这样仍然无效，可关闭所有元素，直到可以添加元素为止，或者忽略该标记。
+让我们看一些 WebKit 容错的示例：
+
+使用了 </br> 而不是 <br>
+有些网站使用了 </br> 而不是 <br>。为了与 IE 和 Firefox 兼容，WebKit 将其与 <br> 做同样的处理。
+代码如下：
+> if (t->isCloseTag(brTag) && m_document->inCompatMode()) {
+>      reportError(MalformedBRError);
+>     t->beginTag = true;
+> }
