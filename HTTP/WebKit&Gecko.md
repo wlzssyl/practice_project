@@ -100,3 +100,18 @@ HTML5 规范详细地描述了解析算法。此算法由两个阶段组成：�
 >      reportError(MalformedBRError);
 >     t->beginTag = true;
 > }
+### 离散表格
++ 离散表格是指位于其他表格内容中，但又不在任何一个单元格内的表格。
+比如以下的示例：
+<table>
+    <table>
+        <tr><td>inner table</td></tr>
+    </table>
+    <tr><td>outer table</td></tr>
+</table>WebKit 会将其层次结构更改为两个同级表格：
+<table>
+    <tr><td>outer table</td></tr>
+</table>
+<table>
+    <tr><td>inner table</td></tr>
+</table>
