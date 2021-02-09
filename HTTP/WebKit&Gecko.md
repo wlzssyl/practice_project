@@ -290,4 +290,6 @@ HTML 采用基于流的布局模型，这意味着大多数情况下只要一次
 将其 dirty 位设置为 false。
 Firefox 使用“state”对象 (nsHTMLReflowState) 作为布局的参数（称为“reflow”），这其中包括了父呈现器的宽度。
 Firefox 布局的输出为“metrics”对象 (nsHTMLReflowMetrics)，其包含计算得出的呈现器高度。
++ 宽度处理
+呈现器宽度是根据容器块的宽度、呈现器样式中的“width”属性以及边距和边框计算得出的。
 
